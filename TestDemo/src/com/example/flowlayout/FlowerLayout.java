@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 /*
- * ×Ô¶¨ÒåViewGroup
- * 	1¡¢onMeasure:²âÁ¿×ÓViewµÄ¿íºÍ¸ß£¬ÉèÖÃ×Ô¼ºµÄ¿íºÍ¸ß¡£
- * 		¸ù¾İ×ÓViewµÄ²¼¾ÖÎÄ¼ş£¬Îª×ÓViewÉèÖÃ²âÁ¿Ä£Ê½ºÍ²âÁ¿Öµ
- * 		²âÁ¿ = ²âÁ¿Ä£Ê½+²âÁ¿Öµ
- * 		²âÁ¿Ä£Ê½ÓĞ3ÖÖ£º
- * 		EXACTLY£º¾«×¼£¬match_parent
- * 		AT_MOST£ºWrap_content
- * 		UNSPECIFIED£º×ÓViewÏëÒª¶àÔÚ¾Í¶à´ó
- * 	2¡¢onLayout£ºÉèÖÃ×ÓViewµÄÎ»ÖÃ
+ * è‡ªå®šä¹‰ViewGroup
+ * 	1ã€onMeasure:æµ‹é‡å­Viewçš„å®½å’Œé«˜ï¼Œè®¾ç½®è‡ªå·±çš„å®½å’Œé«˜ã€‚
+ * 		æ ¹æ®å­Viewçš„å¸ƒå±€æ–‡ä»¶ï¼Œä¸ºå­Viewè®¾ç½®æµ‹é‡æ¨¡å¼å’Œæµ‹é‡å€¼
+ * 		æµ‹é‡ = æµ‹é‡æ¨¡å¼+æµ‹é‡å€¼
+ * 		æµ‹é‡æ¨¡å¼æœ‰3ç§ï¼š
+ * 		EXACTLYï¼šç²¾å‡†ï¼Œmatch_parent
+ * 		AT_MOSTï¼šWrap_content
+ * 		UNSPECIFIEDï¼šå­Viewæƒ³è¦å¤šåœ¨å°±å¤šå¤§
+ * 	2ã€onLayoutï¼šè®¾ç½®å­Viewçš„ä½ç½®
  * 
  * ViewGroup --LayoutParams
  */
@@ -36,10 +36,8 @@ public class FlowerLayout extends ViewGroup {
 	}
 
 
-	
-
 	/*
-	 * ´«Èë¸¸ViewµÄ¿í¸ß
+	 * ä¼ å…¥çˆ¶Viewçš„å®½é«˜
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -55,7 +53,7 @@ public class FlowerLayout extends ViewGroup {
 		int height = 0;
 //		
 		
-		//¼ÇÂ¼Ã¿Ò»ĞĞµÄ¸ß¶ÈºÍ¿í¶È
+		//è®°å½•æ¯ä¸€è¡Œçš„é«˜åº¦å’Œå®½åº¦
 		int lineWidth = 0;
 		int lineHeight = 0;
 		
@@ -63,15 +61,15 @@ public class FlowerLayout extends ViewGroup {
 		for (int i = 0; i < count; i++)
 		{
 			View child = getChildAt(i);
-			//²âÁ¿×ÓViewµÄ¿íºÍ¸ß
+			//æµ‹é‡å­Viewçš„å®½å’Œé«˜
 			measureChild(child, widthMeasureSpec, heightMeasureSpec);
-			//µÃµ½LayoutParams
+			//å¾—åˆ°LayoutParams
 			MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-			//×ÓViewÕ¼¾İµÄ¿í¶ÈºÍ¸ß¶È
+			//å­Viewå æ®çš„å®½åº¦å’Œé«˜åº¦
 			int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
 			int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
 			
-			//»»ĞĞ´¦Àí
+			//æ¢è¡Œå¤„ç†
 			if (lineWidth + childWidth > sizeWidth - getPaddingLeft() - getPaddingRight())
 			{
 				width = Math.max(width, lineWidth);
@@ -96,9 +94,9 @@ public class FlowerLayout extends ViewGroup {
 		
 	}
 	
-	//´æ´¢ËùÓĞµÄView,Ò»ĞĞĞĞµØ´æ
+	//å­˜å‚¨æ‰€æœ‰çš„View,ä¸€è¡Œè¡Œåœ°å­˜
 	private List<List<View>> mAllViews = new ArrayList<List<View>>();
-	//Ã¿Ò»ĞĞµÄ¸ß¶È
+	//æ¯ä¸€è¡Œçš„é«˜åº¦
 	private List<Integer> mLineHeight = new ArrayList<Integer>();
 	
 	@Override
@@ -123,7 +121,7 @@ public class FlowerLayout extends ViewGroup {
 			{
 				mLineHeight.add(lineHeight);
 				mAllViews.add(lineViews);
-				//ÖØÖÃ
+				//é‡ç½®
 				lineWidth = 0;
 				lineHeight = childHeight + lp.topMargin + lp.bottomMargin;
 				
@@ -136,7 +134,7 @@ public class FlowerLayout extends ViewGroup {
 		mLineHeight.add(lineHeight);
 		mAllViews.add(lineViews);
 		
-		//ÉèÖÃ×ÓViewµÄÎ»ÖÃ
+		//è®¾ç½®å­Viewçš„ä½ç½®
 		int left = getPaddingLeft();
 		int top = getPaddingTop();
 		
@@ -173,7 +171,7 @@ public class FlowerLayout extends ViewGroup {
 	}
 	
 	/*
-	 * Óëµ±Ç°ViewGroup¶ÔÓ¦µÄLayoutParams
+	 * ä¸å½“å‰ViewGroupå¯¹åº”çš„LayoutParams
 	 */
 	@Override
 	public LayoutParams generateLayoutParams(AttributeSet attrs) {

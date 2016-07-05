@@ -22,14 +22,14 @@ public class SharedPreferenceActivity extends Activity implements
 		OnClickListener {
 
 	/*
-	 * ±¾ÖÊÊÇ»ùÓÚXMLÎÄ¼ş´æ´¢key-value
+	 * æœ¬è´¨æ˜¯åŸºäºXMLæ–‡ä»¶å­˜å‚¨key-value
 	 * 
-	 * SharedPreferenceÖ»ÄÜ»ñÈ¡Êı¾İ¶ø²»Ö§³Ö´æ´¢ºÍĞŞ¸Ä ´æ´¢ĞŞ¸ÄÊÇÍ¨¹ıEditor¶ÔÏóÊµÏÖ
+	 * SharedPreferenceåªèƒ½è·å–æ•°æ®è€Œä¸æ”¯æŒå­˜å‚¨å’Œä¿®æ”¹ å­˜å‚¨ä¿®æ”¹æ˜¯é€šè¿‡Editorå¯¹è±¡å®ç°
 	 * 
-	 * 1¡¢»ñÈ¡SharedPreference¶ÔÏó 2¡¢»ñÈ¡SharedPreference.Editor¶ÔÏó
-	 * 3¡¢Í¨¹ıEditorµÄPutxxx±£´æÊı¾İ 4¡¢Editor.commitÌá½»
+	 * 1ã€è·å–SharedPreferenceå¯¹è±¡ 2ã€è·å–SharedPreference.Editorå¯¹è±¡
+	 * 3ã€é€šè¿‡Editorçš„Putxxxä¿å­˜æ•°æ® 4ã€Editor.commitæäº¤
 	 * 
-	 * µã»÷ÆÁÄ»ÆäËüµØ·½ÊµÏÖÒş²ØÊäÈë·¨¼üÅÌ
+	 * ç‚¹å‡»å±å¹•å…¶å®ƒåœ°æ–¹å®ç°éšè—è¾“å…¥æ³•é”®ç›˜
 	 */
 
 	private RelativeLayout layout;
@@ -37,7 +37,6 @@ public class SharedPreferenceActivity extends Activity implements
 	private EditText mEditPsw;
 	private CheckBox mCheckBox;
 	private Button login;
-
 	private SharedPreferences pref = null;
 	Editor mEdit = null;
 
@@ -57,7 +56,7 @@ public class SharedPreferenceActivity extends Activity implements
 		login.setOnClickListener(this);
 
 		// pref = PreferenceManager.getDefaultSharedPreferences(this);
-		// ÉèÖÃÎÄ¼şÃû³ÆºÍÈ¨ÏŞ
+		// è®¾ç½®æ–‡ä»¶åç§°å’Œæƒé™
 		pref = getSharedPreferences("mypref", MODE_PRIVATE);
 		mEdit = pref.edit();
 		String name = pref.getString("name", "");
@@ -83,7 +82,7 @@ public class SharedPreferenceActivity extends Activity implements
 		mCheckBox = (CheckBox) findViewById(R.id.checkBox1);
 		login = (Button) findViewById(R.id.login);
 
-		// mEdit.putString("name", "»ÆÎõ");
+		// mEdit.putString("name", "é»„ç†™");
 		// mEdit.putInt("age", 18);
 		// mEdit.putLong("time", System.currentTimeMillis());
 		// mEdit.putBoolean("man", true);
@@ -100,11 +99,11 @@ public class SharedPreferenceActivity extends Activity implements
 				mEdit.putString("name", name);
 				mEdit.putString("psw", psw);
 				mEdit.commit();
-				MyToast("±£´æ³É¹¦");
+				MyToast("ä¿å­˜æˆåŠŸ");
 			} else {
 				mEdit.remove("name");
 				mEdit.commit();
-				MyToast("Ã»ÓĞ±£´æ");
+				MyToast("æ²¡æœ‰ä¿å­˜");
 			}
 			break;
 
@@ -115,7 +114,7 @@ public class SharedPreferenceActivity extends Activity implements
 	}
 	
 
-	//ÉèÖÃOnTouch¼àÌıÊÂ¼ş
+	//è®¾ç½®OnTouchç›‘å¬äº‹ä»¶
 	private void SetOnTouch(View view)
 	{
 		if (!(view instanceof EditText))
@@ -130,7 +129,7 @@ public class SharedPreferenceActivity extends Activity implements
 			});
 		}
 		
-		//µİ¹é¼àÌıOnTouchÊÂ¼ş
+		//é€’å½’ç›‘å¬OnTouchäº‹ä»¶
 		if (!(view instanceof ViewGroup))
 		{
 			for (int i = 0; i < ((ViewGroup)view).getChildCount(); i++) {
@@ -138,7 +137,7 @@ public class SharedPreferenceActivity extends Activity implements
 			}
 		}
 	}
-	//Òş²ØÊäÈë·¨
+	//éšè—è¾“å…¥æ³•
 	private void hideSoftKeyboard(Activity activity)
 	{
 		InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);

@@ -23,8 +23,8 @@ import com.example.treeview.utils.TreeViewAdapter.OnTreeNodeClickListener;
 
 /*
  * ListView's + paddingLeft(level)+expand include
- * 1¡¢½«Êı¾İBean-->Node(TreeHelper)
- * 2¡¢ÉèÖÃ½Úµã¼äµÄ¹ØÏµ£¬ÒÔ¼°ÅÅĞò
+ * 1ã€å°†æ•°æ®Bean-->Node(TreeHelper)
+ * 2ã€è®¾ç½®èŠ‚ç‚¹é—´çš„å…³ç³»ï¼Œä»¥åŠæ’åº
  */
 public class TreeView extends Activity {
 
@@ -35,7 +35,6 @@ public class TreeView extends Activity {
 	private List<OrgBean> mDatas2 = new ArrayList<OrgBean>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.treeview_main);
 		mTree = (ListView) findViewById(R.id.treeview_listview);
@@ -52,7 +51,7 @@ public class TreeView extends Activity {
 	}
 
 	private void initEvent() {
-		//Ò¶Ìí¼Óµã»÷ÊÂ¼ş
+		//å¶æ·»åŠ ç‚¹å‡»äº‹ä»¶
 		mAdapter.setOnTreeNodeClickListener(new OnTreeNodeClickListener() {
 
 			@Override
@@ -64,7 +63,7 @@ public class TreeView extends Activity {
 			}
 		});
 		
-		//Ìí¼Ó³¤°´Ìí¼ÓÊÂ¼ş
+		//æ·»åŠ é•¿æŒ‰æ·»åŠ äº‹ä»¶
 		mTree.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			@Override
@@ -85,38 +84,38 @@ public class TreeView extends Activity {
 	}
 
 	private void initData() {
-		FileBean bean = new FileBean(1, 0, "¸ùÄ¿Â¼1");
+		FileBean bean = new FileBean(1, 0, "æ ¹ç›®å½•1");
 		mDatas.add(bean);
-		bean = new FileBean(2, 0, "¸ùÄ¿Â¼2");
+		bean = new FileBean(2, 0, "æ ¹ç›®å½•2");
 		mDatas.add(bean);
-		bean = new FileBean(3, 0, "¸ùÄ¿Â¼3");
+		bean = new FileBean(3, 0, "æ ¹ç›®å½•3");
 		mDatas.add(bean);
-		bean = new FileBean(4, 1, "¸ùÄ¿Â¼1-1");
+		bean = new FileBean(4, 1, "æ ¹ç›®å½•1-1");
 		mDatas.add(bean);
-		bean = new FileBean(5, 1, "¸ùÄ¿Â¼1-2");
+		bean = new FileBean(5, 1, "æ ¹ç›®å½•1-2");
 		mDatas.add(bean);
-		bean = new FileBean(6, 5, "¸ùÄ¿Â¼1-2-1");
+		bean = new FileBean(6, 5, "æ ¹ç›®å½•1-2-1");
 		mDatas.add(bean);
-		bean = new FileBean(7, 3, "¸ùÄ¿Â¼3-1");
+		bean = new FileBean(7, 3, "æ ¹ç›®å½•3-1");
 		mDatas.add(bean);
-		bean = new FileBean(8, 3, "¸ùÄ¿Â¼3-2");
+		bean = new FileBean(8, 3, "æ ¹ç›®å½•3-2");
 		mDatas.add(bean);
 		
-		OrgBean bean2 = new OrgBean(1, 0, "¸ùÄ¿Â¼1");
+		OrgBean bean2 = new OrgBean(1, 0, "æ ¹ç›®å½•1");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(2, 0, "¸ùÄ¿Â¼2");
+		bean2 = new OrgBean(2, 0, "æ ¹ç›®å½•2");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(3, 0, "¸ùÄ¿Â¼3");
+		bean2 = new OrgBean(3, 0, "æ ¹ç›®å½•3");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(4, 1, "¸ùÄ¿Â¼1-1");
+		bean2 = new OrgBean(4, 1, "æ ¹ç›®å½•1-1");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(5, 1, "¸ùÄ¿Â¼1-2");
+		bean2 = new OrgBean(5, 1, "æ ¹ç›®å½•1-2");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(6, 5, "¸ùÄ¿Â¼1-2-1");
+		bean2 = new OrgBean(6, 5, "æ ¹ç›®å½•1-2-1");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(7, 3, "¸ùÄ¿Â¼3-1");
+		bean2 = new OrgBean(7, 3, "æ ¹ç›®å½•3-1");
 		mDatas2.add(bean2);
-		bean2 = new OrgBean(8, 3, "¸ùÄ¿Â¼3-2");
+		bean2 = new OrgBean(8, 3, "æ ¹ç›®å½•3-2");
 		mDatas2.add(bean2);
 	}
 }

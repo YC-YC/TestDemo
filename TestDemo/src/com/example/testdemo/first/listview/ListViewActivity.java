@@ -14,9 +14,9 @@ import android.widget.SimpleAdapter;
 import com.example.testdemo.R;
 
 /*
- * 1¡¢ĞÂ½¨ÊÊÅäÆ÷
- * 2¡¢¼ÓÔØÊı¾İ
- * 3¡¢ÊÓÍ¼Ìí¼ÓÊÊÅäÆ÷
+ * 1ã€æ–°å»ºé€‚é…å™¨
+ * 2ã€åŠ è½½æ•°æ®
+ * 3ã€è§†å›¾æ·»åŠ é€‚é…å™¨
  */
 public class ListViewActivity extends Activity {
 	
@@ -35,25 +35,24 @@ public class ListViewActivity extends Activity {
 	}
 
 	private void initView() {
-		
 		mListView = (ListView) findViewById(R.id.listView1);
 		/*
 		 * BaseAdapter
 		 */
-//		String[] arr_data = {"ÓïÎÄ", "Ó¢Óï", "ÊıÑ§", "ÎïÀí"};
+//		String[] arr_data = {"è¯­æ–‡", "è‹±è¯­", "æ•°å­¦", "ç‰©ç†"};
 //		arr_adAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr_data);
 //		mListView.setAdapter(arr_adAdapter);
 		
 		/*
 		 * simpleAdapter
 		 * 
-		 * data:Êı¾İÔ´£¨ List<? extends Map<String, ?>> data£©£¬Ò»¸ömap×é³ÉµÄList¼¯ºÏ
-		 * 		Ã¿¸ömap¶ÔÓ¦listViewÁĞ±íÖĞµÄÒ»ĞĞ
-		 * 		Ã¿¸ömap£¨¼üÖµ¶Ô£©ÖĞµÄ¼üÎªfromËùÖ¸¶¨µÄ¼ü
-		 * from:mapµÄ¼üÖµÃû
-		 * to:ÊÓÍ¼ID£¬Óëfrom¶ÔÓ¦
+		 * data:æ•°æ®æºï¼ˆ List<? extends Map<String, ?>> dataï¼‰ï¼Œä¸€ä¸ªmapç»„æˆçš„Listé›†åˆ
+		 * 		æ¯ä¸ªmapå¯¹åº”listViewåˆ—è¡¨ä¸­çš„ä¸€è¡Œ
+		 * 		æ¯ä¸ªmapï¼ˆé”®å€¼å¯¹ï¼‰ä¸­çš„é”®ä¸ºfromæ‰€æŒ‡å®šçš„é”®
+		 * from:mapçš„é”®å€¼å
+		 * to:è§†å›¾IDï¼Œä¸fromå¯¹åº”
 		 * 
-		 * from×÷Îª¼üÖµÊı×é£¬Óëto¶ÔÓ¦ÊÓÍ¼µÄid,mapÖĞµÄKeyÖµÓëfrom¶ÔÓ¦£¬valueÊÇÊµ¼ÊµÄÄÚÈİ
+		 * fromä½œä¸ºé”®å€¼æ•°ç»„ï¼Œä¸toå¯¹åº”è§†å›¾çš„id,mapä¸­çš„Keyå€¼ä¸fromå¯¹åº”ï¼Œvalueæ˜¯å®é™…çš„å†…å®¹
 		 */
 		datalist = new ArrayList<Map<String, Object>>();
 		datalist = getData();
@@ -68,7 +67,7 @@ public class ListViewActivity extends Activity {
 		{
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("pic", R.drawable.ic_launcher);
-			map.put("text", "Ä»¿Î" + i);
+			map.put("text", "å¹•è¯¾" + i);
 			datalist.add(map);
 		}
 		return datalist;

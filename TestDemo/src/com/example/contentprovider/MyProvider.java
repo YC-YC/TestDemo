@@ -6,28 +6,27 @@ import android.database.Cursor;
 import android.net.Uri;
 
 /*
- * ¼Ì³ĞContentProvider
- * mxlÌí¼Ó×¢²á²¢ÇÒ
- * ÖØĞ´·½·¨
+ * ç»§æ‰¿ContentProvider
+ * mxlæ·»åŠ æ³¨å†Œå¹¶ä¸”
+ * é‡å†™æ–¹æ³•
  * uri:content://com.exampel.contentprovider/music/#
- * content://£º¹Ì¶¨¸ñÊ½
- * com.exampel.contentprovider:mxlÖĞ×¢²áµÄproviderÖĞµÄandroid:authoritesÊôĞÔ¶ÔÓ¦µÄÖµ
- * music£º²Ù×÷ÓÚÄÄ¸öÌõÄ¿
- * #:Ö¸¶¨ÌõÄ¿ÏÂµÄÄÄÌõ¼ÇÂ¼£¨#ÊÇÍ¨Åä·û£©
+ * content://ï¼šå›ºå®šæ ¼å¼
+ * com.exampel.contentprovider:mxlä¸­æ³¨å†Œçš„providerä¸­çš„android:authoriteså±æ€§å¯¹åº”çš„å€¼
+ * musicï¼šæ“ä½œäºå“ªä¸ªæ¡ç›®
+ * #:æŒ‡å®šæ¡ç›®ä¸‹çš„å“ªæ¡è®°å½•ï¼ˆ#æ˜¯é€šé…ç¬¦ï¼‰
  * 
- * Í¨¹ıUriMatcherÀàĞÍ·â×°Uri
- * Í¨¹ıContentResolver²Ù×÷ContentProviderÖĞµÄÊı¾İ
+ * é€šè¿‡UriMatcherç±»å‹å°è£…Uri
+ * é€šè¿‡ContentResolveræ“ä½œContentProviderä¸­çš„æ•°æ®
  * 
  */
 public class MyProvider extends ContentProvider {
 
-	//Provider±»´´½¨µÄÊ±ºòµ÷ÓÃ 
+	//Providerè¢«åˆ›å»ºçš„æ—¶å€™è°ƒç”¨ 
 	@Override
 	public boolean onCreate() {
-		// TODO Auto-generated method stub
 		return false;
 	}
-	//¸ù¾İUriµÄselection²éÑ¯Êı¾İ
+	//æ ¹æ®Uriçš„selectionæŸ¥è¯¢æ•°æ®
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
@@ -35,29 +34,29 @@ public class MyProvider extends ContentProvider {
 		return null;
 	}
 
-	//·µ»Øµ±Ç°UriµÄMIMEÀàĞÍ£¬Èç¹û¸ÃUri¶ÔÓ¦µÄÊı¾İÓĞ¶àÌõ¼ÇÂ¼£¬ÄÇÃ´MIMEÀàĞÍ×Ö·û´®¾ÍÊÇÒÔvnd.anrdoid.dir¿ªÍ·
-	//Èç¹ûÖ»ÓĞÒ»Ìõ£¬MIMEy¾ÍÊÇÒÔvnd.android.cursor.item¿ªÍ·
+	//è¿”å›å½“å‰Uriçš„MIMEç±»å‹ï¼Œå¦‚æœè¯¥Uriå¯¹åº”çš„æ•°æ®æœ‰å¤šæ¡è®°å½•ï¼Œé‚£ä¹ˆMIMEç±»å‹å­—ç¬¦ä¸²å°±æ˜¯ä»¥vnd.anrdoid.dirå¼€å¤´
+	//å¦‚æœåªæœ‰ä¸€æ¡ï¼ŒMIMEyå°±æ˜¯ä»¥vnd.android.cursor.itemå¼€å¤´
 	@Override
 	public String getType(Uri uri) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	//¸ù¾İUri²åÈëÊı¾İ
+	//æ ¹æ®Uriæ’å…¥æ•°æ®
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	//¸ù¾İUriµÄselectionÉ¾³ıÊı¾İ
+	//æ ¹æ®Uriçš„selectionåˆ é™¤æ•°æ®
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	//¸ù¾İUriĞŞ¸ÄselectionÖ¸¶¨µÄÈ«²¿¼ÇÂ¼
+	//æ ¹æ®Uriä¿®æ”¹selectionæŒ‡å®šçš„å…¨éƒ¨è®°å½•
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {

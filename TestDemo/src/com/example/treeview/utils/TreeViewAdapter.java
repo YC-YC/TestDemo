@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 public abstract class TreeViewAdapter <T> extends BaseAdapter {
 
+	
 	protected Context mContext;
 	protected List<Node> mAllNodes;
 	protected List<Node> mVisibleNodes;
@@ -53,7 +54,7 @@ public abstract class TreeViewAdapter <T> extends BaseAdapter {
 		});
 	}
 	
-	//µã»÷ÊÕËõ»òÕ¹¿ª
+	//ç‚¹å‡»æ”¶ç¼©æˆ–å±•å¼€
 	private void expandOrCollapse(int position) {
 		Node n = mVisibleNodes.get(position);
 		if (n != null)
@@ -93,7 +94,7 @@ public abstract class TreeViewAdapter <T> extends BaseAdapter {
 		return convertView;
 	}
 	
-	//³éÏó·½·¨¹©Íâ²¿¼Ì³ÐÊ¹ÓÃ
+	//æŠ½è±¡æ–¹æ³•ä¾›å¤–éƒ¨ç»§æ‰¿ä½¿ç”¨
 	public abstract View getConvertView(Node node, int position, View convertView, ViewGroup parent);
 
 }

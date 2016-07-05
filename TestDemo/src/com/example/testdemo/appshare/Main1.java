@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 /**
  *@Author Administrator
- *@Time 2016-2-24 ÏÂÎç7:39:01
+ *@Time 2016-2-24 ä¸‹åˆ7:39:01
  */
 public class Main1 extends Activity {
 
@@ -22,7 +22,6 @@ public class Main1 extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_share1);
 		
@@ -30,13 +29,13 @@ public class Main1 extends Activity {
 		mEditText = (EditText) findViewById(R.id.editText1);
 		mButton = (Button) findViewById(R.id.button1);
 		
-		mTextView.setText("¹²ÏíµÄÊı¾İÊÇ£º" + getApp().getmShareString());
+		mTextView.setText("å…±äº«çš„æ•°æ®æ˜¯ï¼š" + getApp().getmShareString());
 		mButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				getApp().setmShareString(mEditText.getText().toString());
-				mTextView.setText("¹²ÏíµÄÊı¾İÊÇ£º" + getApp().getmShareString());
+				mTextView.setText("å…±äº«çš„æ•°æ®æ˜¯ï¼š" + getApp().getmShareString());
 			}
 		});
 		

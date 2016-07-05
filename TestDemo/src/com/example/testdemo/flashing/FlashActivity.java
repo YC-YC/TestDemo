@@ -16,19 +16,18 @@ import android.widget.Toast;
 import com.example.testdemo.Utils;
 
 /**
- * ÊÖµçÍ²´°¿Ú
+ * æ‰‹ç”µç­’çª—å£
  *@Author Administrator
- *@Time 2016-3-6 ÉÏÎç12:29:38
+ *@Time 2016-3-6 ä¸Šåˆ12:29:38
  */
 public class FlashActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		Utils.LogFlash("FlashActivity onCreate ------");
 		super.onCreate(savedInstanceState);
 		Point point = new Point();
-		//»ñÈ¡ÆÁÄ»³¤¿í
+		//è·å–å±å¹•é•¿å®½
 		getWindowManager().getDefaultDisplay().getSize(point);
 		LayoutParams mParams = (LayoutParams) mImgFlashlightController.getLayoutParams();
 		mParams.height = point.y*3/4;
@@ -42,11 +41,11 @@ public class FlashActivity extends BaseActivity {
 	{
 		if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA))
 		{
-			Toast.makeText(this, "ÓĞÉãÏñÍ·ÊôĞÔ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "æœ‰æ‘„åƒå¤´å±æ€§", Toast.LENGTH_SHORT).show();
 		}
 		else
 		{
-			Toast.makeText(this, "Ã»ÓĞÉãÏñÍ·ÊôĞÔ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "æ²¡æœ‰æ‘„åƒå¤´å±æ€§", Toast.LENGTH_SHORT).show();
 		}
 		
 		if ((Boolean) mImgFlashlight.getTag())

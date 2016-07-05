@@ -22,15 +22,14 @@ public class ProgressActivity extends Activity implements OnClickListener{
 	private ProgressDialog progressDialog;
 	private int firstProgress, secondProgress, maxProgress;
 	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//ÆôÓÃ´ø½ø¶ÈµÄ½ø¶ÈÌõºÍ²»´ø½ø¶ÈµÄ½ø¶ÈÌõ
+		//å¯ç”¨å¸¦è¿›åº¦çš„è¿›åº¦æ¡å’Œä¸å¸¦è¿›åº¦çš„è¿›åº¦æ¡
 		requestWindowFeature(Window.FEATURE_PROGRESS);
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.progress);
-		//ÏÔÊ¾Á½ÖÖ½ø¶ÈÌõ
+		//æ˜¾ç¤ºä¸¤ç§è¿›åº¦æ¡
 		setProgressBarVisibility(true);
 		setProgressBarIndeterminate(true);
 		setProgress(60);
@@ -59,8 +58,8 @@ public class ProgressActivity extends Activity implements OnClickListener{
 		secondProgress = progressBar.getSecondaryProgress();
 		maxProgress = progressBar.getMax();
 		
-		tv.setText("µÚÒ»½ø¶ÈÌõÎª£º" + (int)(firstProgress*100/maxProgress) 
-				+"%,µÚ¶ş½ø¶ÈÌõÎª£º" + (int)(secondProgress*100/maxProgress)
+		tv.setText("ç¬¬ä¸€è¿›åº¦æ¡ä¸ºï¼š" + (int)(firstProgress*100/maxProgress) 
+				+"%,ç¬¬äºŒè¿›åº¦æ¡ä¸ºï¼š" + (int)(secondProgress*100/maxProgress)
 				+"%");
 	}
 
@@ -83,36 +82,36 @@ public class ProgressActivity extends Activity implements OnClickListener{
 			progressDialog = new ProgressDialog(this);
 			progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 			progressDialog.setIcon(R.drawable.ic_launcher);
-			progressDialog.setTitle("±êÌâ");
-			progressDialog.setMessage("»¶Ó­Ê¹ÓÃ½ø¶ÈÌõ¶Ô»°¿ò");
+			progressDialog.setTitle("æ ‡é¢˜");
+			progressDialog.setMessage("æ¬¢è¿ä½¿ç”¨è¿›åº¦æ¡å¯¹è¯æ¡†");
 			progressDialog.setMax(maxProgress);
 			progressDialog.incrementProgressBy(firstProgress);
 			progressDialog.setSecondaryProgress(secondProgress);
 			
-			progressDialog.setButton(DialogInterface.BUTTON_POSITIVE, "È·¶¨", new DialogInterface.OnClickListener() {
+			progressDialog.setButton(DialogInterface.BUTTON_POSITIVE, "ç¡®å®š", new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					Toast.makeText(ProgressActivity.this, "µã»÷ÁËÈ·¶¨", Toast.LENGTH_LONG).show();
+					Toast.makeText(ProgressActivity.this, "ç‚¹å‡»äº†ç¡®å®š", Toast.LENGTH_LONG).show();
 				}
 			});
-			progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "È¡Ïû", new DialogInterface.OnClickListener() {
+			progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "å–æ¶ˆ", new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					Toast.makeText(ProgressActivity.this, "µã»÷ÁËÈ¡Ïû", Toast.LENGTH_LONG).show();
+					Toast.makeText(ProgressActivity.this, "ç‚¹å‡»äº†å–æ¶ˆ", Toast.LENGTH_LONG).show();
 				}
 			});
 			
-			//ÊÇ·ñ¿ÉÍ¨¹ı·µ»ØÍË³ö
+			//æ˜¯å¦å¯é€šè¿‡è¿”å›é€€å‡º
 			progressDialog.setCancelable(true);
 			progressDialog.show();
 			return;
 		}
 		progressBar.setProgress(firstProgress);
 		progressBar.setSecondaryProgress(secondProgress);
-		tv.setText("µÚÒ»½ø¶ÈÌõÎª£º" + (int)(firstProgress*100/maxProgress) 
-				+"%,µÚ¶ş½ø¶ÈÌõÎª£º" + (int)(secondProgress*100/maxProgress)
+		tv.setText("ç¬¬ä¸€è¿›åº¦æ¡ä¸ºï¼š" + (int)(firstProgress*100/maxProgress) 
+				+"%,ç¬¬äºŒè¿›åº¦æ¡ä¸ºï¼š" + (int)(secondProgress*100/maxProgress)
 				+"%");
 	}
 }

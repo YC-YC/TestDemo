@@ -10,22 +10,21 @@ import com.example.testdemo.R;
 import com.example.testdemo.Utils;
 
 /**
- * »ù×¼´°¿Ú
+ * åŸºå‡†çª—å£
  *
  *@Author Administrator
- *@Time 2016-3-6 ÉÏÎç12:28:40
+ *@Time 2016-3-6 ä¸Šåˆ12:28:40
  */
 public class BaseActivity extends Activity {
 
 	/**
-	 * ×é¼ş¼°±äÁ¿ÔÚ´ËÉùÃ÷£¬²¢Îªprotected,¼Ì³ĞÀà¿ÉÒÔÒıÓÃ
+	 * ç»„ä»¶åŠå˜é‡åœ¨æ­¤å£°æ˜ï¼Œå¹¶ä¸ºprotected,ç»§æ‰¿ç±»å¯ä»¥å¼•ç”¨
 	 */
 	protected ImageView mImgFlashlight;
 	protected ImageView mImgFlashlightController;
 	
 	protected Camera mCamera;
 	protected Parameters mParameters;
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

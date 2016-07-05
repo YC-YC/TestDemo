@@ -23,6 +23,7 @@ public class SimpleTreeViewAdapter <T> extends TreeViewAdapter<T> {
 		super(context, tree, datas, defaultExpandLevel);
 	}
 
+	
 	@Override
 	public View getConvertView(Node node, int position, View convertView,
 			ViewGroup parent) {

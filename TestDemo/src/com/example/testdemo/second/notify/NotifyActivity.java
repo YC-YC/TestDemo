@@ -15,7 +15,6 @@ import android.widget.Button;
 
 import com.example.testdemo.R;
 
-@SuppressLint("NewApi")
 public class NotifyActivity extends Activity implements OnClickListener {
 
 	private final int NOTIFICATION_ID = 1000;
@@ -58,33 +57,33 @@ public class NotifyActivity extends Activity implements OnClickListener {
 	}
 
 	/*
-	 * È¡ÏûÍ¨Öª
+	 * å–æ¶ˆé€šçŸ¥
 	 */
 	private void cancelNotify() {
-		manager.cancel(NOTIFICATION_ID);//Í¨¹ıIDÈ¡Ïû
+		manager.cancel(NOTIFICATION_ID);//é€šè¿‡IDå–æ¶ˆ
 	}
 
 	/*
-	 * ·¢ËÍÍ¨ÖªÀ¸
+	 * å‘é€é€šçŸ¥æ 
 	 */
 	private void showNofity() {
 		Builder builder = new Notification.Builder(this);
 		builder.setSmallIcon(R.drawable.ic_launcher);
-		builder.setTicker("hello");	//ÊÖ»ú×´Ì¬À¸µÄÌáÊ¾
-		builder.setWhen(System.currentTimeMillis());//ÉèÖÃÊ±¼ä
-		builder.setContentTitle("Í¨ÖªÀ¸Í¨Öª");//ÉèÖÃ±êÌâ
-		builder.setContentText("ÎÒÊÇÄÚÈİ");
+		builder.setTicker("hello");	//æ‰‹æœºçŠ¶æ€æ çš„æç¤º
+		builder.setWhen(System.currentTimeMillis());//è®¾ç½®æ—¶é—´
+		builder.setContentTitle("é€šçŸ¥æ é€šçŸ¥");//è®¾ç½®æ ‡é¢˜
+		builder.setContentText("æˆ‘æ˜¯å†…å®¹");
 		
 		Intent intent = new Intent(this, NotifyActivity.class);
 		PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
-		builder.setContentIntent(pi);//µã»÷ºóµÄÒâÍ¼
+		builder.setContentIntent(pi);//ç‚¹å‡»åçš„æ„å›¾
 		
 		/*
-		 * ÉèÖÃĞ§¹û£¬ĞèÒªÌí¼ÓÈ¨ÏŞ
+		 * è®¾ç½®æ•ˆæœï¼Œéœ€è¦æ·»åŠ æƒé™
 		 */
-		builder.setDefaults(Notification.DEFAULT_SOUND);//ÉèÖÃÌáÊ¾Òô
-		builder.setDefaults(Notification.DEFAULT_LIGHTS);//ÉèÖÃÖ¸Ê¾µÆ
-		builder.setDefaults(Notification.DEFAULT_VIBRATE);//ÉèÖÃÕñ¶¯
+		builder.setDefaults(Notification.DEFAULT_SOUND);//è®¾ç½®æç¤ºéŸ³
+		builder.setDefaults(Notification.DEFAULT_LIGHTS);//è®¾ç½®æŒ‡ç¤ºç¯
+		builder.setDefaults(Notification.DEFAULT_VIBRATE);//è®¾ç½®æŒ¯åŠ¨
 		
 		Notification notification = builder.build();
 		manager.notify(NOTIFICATION_ID, notification);

@@ -14,15 +14,14 @@ import android.widget.LinearLayout;
 
 /**
  *@Author Administrator
- *@Time 2016-2-28 ÏÂÎç11:58:33
- *ĞèÒªÌí¼ÓÈ¨ÏŞ<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+ *@Time 2016-2-28 ä¸‹åˆ11:58:33
+ *éœ€è¦æ·»åŠ æƒé™<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
  */
 public class FloatView extends Activity implements OnClickListener {
 
 	private Button mBtnAdd,mBtnRemove;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.float_main);
 		mBtnAdd = (Button) findViewById(R.id.btn_add_float);
@@ -31,7 +30,7 @@ public class FloatView extends Activity implements OnClickListener {
 		mBtnRemove.setOnClickListener(this);
 		
 		 LayoutInflater inflater = LayoutInflater.from(getApplication());  
-	        //»ñÈ¡¸¡¶¯´°¿ÚÊÓÍ¼ËùÔÚ²¼¾Ö  
+	        //è·å–æµ®åŠ¨çª—å£è§†å›¾æ‰€åœ¨å¸ƒå±€  
 		 LinearLayout  mLayout = (LinearLayout) inflater.inflate(R.layout.float_win, null);  
 	        	
 		LOG("mLayout.getWidth()--->" + mLayout.getWidth());  

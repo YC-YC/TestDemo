@@ -22,5 +22,4 @@ public class ApkBean {
 	public void setApkDes(String apkDes) {
 		this.apkDes = apkDes;
 	}
-	
 }

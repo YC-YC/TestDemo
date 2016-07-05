@@ -21,7 +21,6 @@ public class ListActivity extends Activity implements ILoadListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.listview2);
 		getData();
@@ -33,7 +32,7 @@ public class ListActivity extends Activity implements ILoadListener{
 			listview = (MyListView) findViewById(R.id.listView2);
 			adapter = new MyAdapter(ListActivity.this, list);
 			listview.setAdapter(adapter);
-			listview.setLoadListener(this);	//ÉèÖÃ»Øµ÷º¯Êı½Ó¿Ú
+			listview.setLoadListener(this);	//è®¾ç½®å›è°ƒå‡½æ•°æ¥å£
 		}else{
 			adapter.OnDataChange(list);
 		}
@@ -43,9 +42,9 @@ public class ListActivity extends Activity implements ILoadListener{
 	private void getData() {
 		for (int i = 0; i < 15; i++) {
 			ApkBean apkBean = new ApkBean();
-			apkBean.setApkName("²âÊÔ³ÌĞò");
-			apkBean.setApkInfo("50wÓÃ»§");
-			apkBean.setApkDes("ÕâÊÇÒ»¸öÉñÆæµÄÓ¦ÓÃ£¡");
+			apkBean.setApkName("æµ‹è¯•ç¨‹åº");
+			apkBean.setApkInfo("50wç”¨æˆ·");
+			apkBean.setApkDes("è¿™æ˜¯ä¸€ä¸ªç¥å¥‡çš„åº”ç”¨ï¼");
 			list.add(apkBean);
 		}
 	}
@@ -67,9 +66,9 @@ public class ListActivity extends Activity implements ILoadListener{
 	private void loadMoreData() {
 		for (int i = 0; i < 2; i++) {
 			ApkBean apkBean = new ApkBean();
-			apkBean.setApkName("µ×²¿¼ÓÔØ³ÌĞò");
-			apkBean.setApkInfo("50wÓÃ»§");
-			apkBean.setApkDes("ÕâÊÇÒ»¸öÉñÆæµÄÓ¦ÓÃ£¡");
+			apkBean.setApkName("åº•éƒ¨åŠ è½½ç¨‹åº");
+			apkBean.setApkInfo("50wç”¨æˆ·");
+			apkBean.setApkDes("è¿™æ˜¯ä¸€ä¸ªç¥å¥‡çš„åº”ç”¨ï¼");
 			list.add(apkBean);
 		}		
 	}
@@ -77,9 +76,9 @@ public class ListActivity extends Activity implements ILoadListener{
 	private void refreshMoreData() {
 		for (int i = 0; i < 2; i++) {
 			ApkBean apkBean = new ApkBean();
-			apkBean.setApkName("¶¥²¿¼ÓÔØ³ÌĞò");
-			apkBean.setApkInfo("50wÓÃ»§");
-			apkBean.setApkDes("ÕâÊÇÒ»¸öÉñÆæµÄÓ¦ÓÃ£¡");
+			apkBean.setApkName("é¡¶éƒ¨åŠ è½½ç¨‹åº");
+			apkBean.setApkInfo("50wç”¨æˆ·");
+			apkBean.setApkDes("è¿™æ˜¯ä¸€ä¸ªç¥å¥‡çš„åº”ç”¨ï¼");
 			list.add(0, apkBean);
 		}		
 	}

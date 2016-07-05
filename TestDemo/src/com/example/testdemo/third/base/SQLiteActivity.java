@@ -13,13 +13,13 @@ import android.widget.TextView;
 
 
 /*
- * SQLiteÖ§³ÖNULL/InTEGER/REAL/TEXT/BLOB
- * ¶à¸ö½ø³Ì¿ÉÒÔÔÚÍ¬Ò»Ê±¼ä´ÓÍ¬Ò»Êı¾İ¿â¶ÁÈ¡Êı¾İ£¬µ«Ö»ÓĞÒ»¸ö¿ÉÒÔĞ´ÈëÊı¾İ
- * 1¡¢SQLiteDatabase
- * 		Ìá¹©Ò»Ğ©¹ÜÀíSQLiteÊı¾İ¿âµÄÀà
- * 		Ìá¹©´´½¨¡¢É¾³ı¡¢Ö´ĞĞSQLÃüÁî²¢Ö´ĞĞÆäËû³£¼ûÊı¾İ¿â¹ÜÀíÈÎÎñµÄ·½·¨£¬Ã¿¸öÓ¦ÓÃÖ»ÓĞÒ»¸öÊı¾İ¿â
+ * SQLiteæ”¯æŒNULL/InTEGER/REAL/TEXT/BLOB
+ * å¤šä¸ªè¿›ç¨‹å¯ä»¥åœ¨åŒä¸€æ—¶é—´ä»åŒä¸€æ•°æ®åº“è¯»å–æ•°æ®ï¼Œä½†åªæœ‰ä¸€ä¸ªå¯ä»¥å†™å…¥æ•°æ®
+ * 1ã€SQLiteDatabase
+ * 		æä¾›ä¸€äº›ç®¡ç†SQLiteæ•°æ®åº“çš„ç±»
+ * 		æä¾›åˆ›å»ºã€åˆ é™¤ã€æ‰§è¡ŒSQLå‘½ä»¤å¹¶æ‰§è¡Œå…¶ä»–å¸¸è§æ•°æ®åº“ç®¡ç†ä»»åŠ¡çš„æ–¹æ³•ï¼Œæ¯ä¸ªåº”ç”¨åªæœ‰ä¸€ä¸ªæ•°æ®åº“
  * 		execSQL/insert/delete/update/query/rawQuery
- * 2¡¢SQLiteOpenHelper
+ * 2ã€SQLiteOpenHelper
  * 
  */
 public class SQLiteActivity extends Activity {
@@ -31,71 +31,70 @@ public class SQLiteActivity extends Activity {
 	private SQLiteDatabase db;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sqlite);
 		tv = (TextView) findViewById(R.id.sqlite);
-		//´´½¨Ò»¸öÊı¾İ¿â²¢ÇÒ´ò¿ª
+		//åˆ›å»ºä¸€ä¸ªæ•°æ®åº“å¹¶ä¸”æ‰“å¼€
 		db = openOrCreateDatabase("mysqlite1.db", MODE_PRIVATE, null);
 		
 		
-		tv.setText("´´½¨Êı¾İ¿â\r\n");
+		tv.setText("åˆ›å»ºæ•°æ®åº“\r\n");
 		db.execSQL("create table if not exists "+TABLE_NAME + "(_id integer primary key autoincrement, name text not null, age integer not null, sex text not null)");
-		tv.append("Ö´ĞĞexecSQL:create table if not exits "+TABLE_NAME + "(_id integer primary key autoincrement, name text not null, age integer not null, sex text not null)\r\n");
+		tv.append("æ‰§è¡ŒexecSQL:create table if not exits "+TABLE_NAME + "(_id integer primary key autoincrement, name text not null, age integer not null, sex text not null)\r\n");
 		
 //		db.execSQL("delete from "+TABLE_NAME);
-//		tv.append("\r\nÇå¿Õ±íÖĞÊı¾İ");
+//		tv.append("\r\næ¸…ç©ºè¡¨ä¸­æ•°æ®");
 //		db.execSQL("create table "+TABLE_NAME + "(_id integer primary key autoincrement, name text not null, age integer not null, sex text not null)");
 		
-		tv.append("\r\nÖ´ĞĞexecSQLÓï¾ä²åÈë1ÌõÊı¾İ");
-		db.execSQL("insert into  "+TABLE_NAME + "(name,sex,age) values('ÕÅÈı','ÄĞ','18')");
+		tv.append("\r\næ‰§è¡ŒexecSQLè¯­å¥æ’å…¥1æ¡æ•°æ®");
+		db.execSQL("insert into  "+TABLE_NAME + "(name,sex,age) values('å¼ ä¸‰','ç”·','18')");
 		/*
-		 * ContentValuesÀàËÆhashmap
+		 * ContentValuesç±»ä¼¼hashmap
 		 */
 		ContentValues values = new ContentValues();
-		values.put("name", "ÀîËÄ");
-		values.put("sex", "Å®");
+		values.put("name", "æå››");
+		values.put("sex", "å¥³");
 		values.put("age", "19");
 		db.insert(TABLE_NAME, null, values);
 		values.clear();
-		values.put("name", "ÍõÎå");
-		values.put("sex", "Å®");
+		values.put("name", "ç‹äº”");
+		values.put("sex", "å¥³");
 		values.put("age", "20");
 		db.insert(TABLE_NAME, null, values);
 		values.clear();
-		values.put("name", "ÕÔÁù");
-		values.put("sex", "Å®");
+		values.put("name", "èµµå…­");
+		values.put("sex", "å¥³");
 		values.put("age", "21");
 		db.insert(TABLE_NAME, null, values);
 		values.clear();
-		values.put("name", "ÕÅÆß");
-		values.put("sex", "Å®");
+		values.put("name", "å¼ ä¸ƒ");
+		values.put("sex", "å¥³");
 		values.put("age", "21");
 		db.insert(TABLE_NAME, null, values);
-		tv.append("\r\nÖ´ĞĞContentValues·½·¨²åÈë4ÌõÊı¾İ");
+		tv.append("\r\næ‰§è¡ŒContentValuesæ–¹æ³•æ’å…¥4æ¡æ•°æ®");
 		getDBContent();
 		values.clear();
-		values.put("sex", "ÄĞ");
-		//ID´óÓÚ3µÄ¸Ä³É¡°ÄĞ¡±
-		tv.append("\r\n¸üĞÂID´óÓÚ3µÄ¸Ä³É¡°ÄĞ¡±");
+		values.put("sex", "ç”·");
+		//IDå¤§äº3çš„æ”¹æˆâ€œç”·â€
+		tv.append("\r\næ›´æ–°IDå¤§äº3çš„æ”¹æˆâ€œç”·â€");
 		db.update(TABLE_NAME, values, "_id>?", new String[]{"3"});
-		tv.append("\r\nÉ¾³ıÃû×Ö´øÓĞ¡°ÕÅ¡±µÄ¼ÇÂ¼");
-		db.delete(TABLE_NAME, "name like ?", new String[]{"%ÕÅ%"});
+		tv.append("\r\nåˆ é™¤åå­—å¸¦æœ‰â€œå¼ â€çš„è®°å½•");
+		db.delete(TABLE_NAME, "name like ?", new String[]{"%å¼ %"});
 		getDBContent();
-		db.execSQL("drop table "+TABLE_NAME);
-		tv.append("\r\nÇå¿Õ±íÖĞÊı¾İ");
+//		db.execSQL("drop table "+TABLE_NAME);
+//		tv.append("\r\næ¸…ç©ºè¡¨ä¸­æ•°æ®");
 		db.close();
 		
 	}
 	private void getDBContent() {
-		//²éÑ¯
+		//æŸ¥è¯¢
 		Cursor cursor = db.rawQuery("select * from  "+TABLE_NAME + "", null);
 		if (cursor != null)
 		{
-			tv.append("\r\n²éÑ¯ÓĞÊı¾İ");
+			tv.append("\r\næŸ¥è¯¢æœ‰æ•°æ®");
 			while(cursor.moveToNext())
 			{
-				tv.append("\r\n»ñÈ¡ÖµÎª id=" + cursor.getInt(cursor.getColumnIndex("_id"))
+				tv.append("\r\nè·å–å€¼ä¸º id=" + cursor.getInt(cursor.getColumnIndex("_id"))
 						+ "name=" +cursor.getString(cursor.getColumnIndex("name"))
 						+ "sex=" +cursor.getString(cursor.getColumnIndex("sex"))
 						+ "age=" +cursor.getInt(cursor.getColumnIndex("age")));

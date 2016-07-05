@@ -6,9 +6,9 @@ import android.os.Bundle;
 
 
 /**
- * ÔğÈÎÁ´Ä£Ê½
+ * è´£ä»»é“¾æ¨¡å¼
  *@Author Administrator
- *@Time 2016-3-4 ÉÏÎç1:08:21
+ *@Time 2016-3-4 ä¸Šåˆ1:08:21
  */
 public class FlashLightMainActivity extends FlashActivity {
 
@@ -18,5 +18,4 @@ public class FlashLightMainActivity extends FlashActivity {
 		super.onCreate(savedInstanceState);
 		Utils.LogFlash("FlashLightMainActivity onCreate ++++++");
 	}
-	
 }

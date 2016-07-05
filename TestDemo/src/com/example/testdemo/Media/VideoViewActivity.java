@@ -7,13 +7,12 @@ import android.widget.VideoView;
 
 /**
  *@Author Administrator
- *@Time 2016-2-26 …œŒÁ1:03:12
+ *@Time 2016-2-26 ‰∏äÂçà1:03:12
  */
 public class VideoViewActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		VideoView vv = new VideoView(this);
 		setContentView(vv);

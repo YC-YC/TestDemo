@@ -29,30 +29,29 @@ public class WebViewActivity extends Activity {
 
 		webView = (WebView) findViewById(R.id.webview);
 		webView.loadUrl(URL);
-		//¸²¸ÇWebViewÄ¬ÈÏÍ¨¹ıµÚÈı·½»òÕßÏµÍ³ä¯ÀÀÆ÷´ò¿ªÍøÒ³µÄĞĞÎª£¬Ê¹µÃÍøÒ³¿ÉÒÔÔÚWebViewÖĞ´ò¿ª
+		//è¦†ç›–WebViewé»˜è®¤é€šè¿‡ç¬¬ä¸‰æ–¹æˆ–è€…ç³»ç»Ÿæµè§ˆå™¨æ‰“å¼€ç½‘é¡µçš„è¡Œä¸ºï¼Œä½¿å¾—ç½‘é¡µå¯ä»¥åœ¨WebViewä¸­æ‰“å¼€
 		webView.setWebViewClient(new WebViewClient(){
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-				//·µ»ØtrueÊ±ºò¿ØÖÆÍøÒ³ÔÚWebViewÖĞ´ò¿ª 
+				//è¿”å›trueæ—¶å€™æ§åˆ¶ç½‘é¡µåœ¨WebViewä¸­æ‰“å¼€ 
 				view.loadUrl(url);
 				return true;
 			}
 		});
 		
-		/*
-		 * ÆôÓÃÖ§³Öjavascript
+		/* å¯ç”¨æ”¯æŒjavascript
 		 */
 		WebSettings settings = webView.getSettings();
 		settings.setJavaScriptEnabled(true);
 		
 		/*
-		 * ¼ÓÔØÒ³ÃæÓÅÏÈÊ¹ÓÃ»º´æ¼ÓÔØ
+		 * åŠ è½½é¡µé¢ä¼˜å…ˆä½¿ç”¨ç¼“å­˜åŠ è½½
 		 */
 		settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 		
 		
 		/*
-		 * »ñÈ¡¼ÓÔØ½ø¶È
+		 * è·å–åŠ è½½è¿›åº¦
 		 */
 		webView.setWebChromeClient(new WebChromeClient(){
 			@Override
@@ -60,7 +59,7 @@ public class WebViewActivity extends Activity {
 				super.onProgressChanged(view, newProgress);
 				if (newProgress == 100)
 				{
-					//¼ÓÔØÍê³É
+					//åŠ è½½å®Œæˆ
 					closeDialog();
 				}
 				else
@@ -74,11 +73,11 @@ public class WebViewActivity extends Activity {
 				{
 					mProgressDialog = new ProgressDialog(WebViewActivity.this);
 					mProgressDialog.setIcon(R.drawable.ic_launcher);
-					mProgressDialog.setTitle("¼ÓÔØ½ø¶È");
+					mProgressDialog.setTitle("åŠ è½½è¿›åº¦");
 					mProgressDialog.show();
 				}
 				mProgressDialog.setProgress(newProgress);
-				mProgressDialog.setMessage("µ±Ç°¼ÓÔØ½ø¶ÈÎª£º" + newProgress + "%");
+				mProgressDialog.setMessage("å½“å‰åŠ è½½è¿›åº¦ä¸ºï¼š" + newProgress + "%");
 			}
 
 			private void closeDialog() {
@@ -92,7 +91,7 @@ public class WebViewActivity extends Activity {
 	}
 	
 	/*
-	 * ĞŞ¸Ä·µ»Ø¼üµÄ´¦Àí(non-Javadoc)
+	 * ä¿®æ”¹è¿”å›é”®çš„å¤„ç†(non-Javadoc)
 	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
 	 */
 	@Override
@@ -107,7 +106,7 @@ public class WebViewActivity extends Activity {
 			}
 			else
 			{
-				System.exit(0);//ÍË³ö³Ì¶È
+				System.exit(0);//é€€å‡ºç¨‹åº¦
 			}
 		}
 		return super.onKeyDown(keyCode, event);

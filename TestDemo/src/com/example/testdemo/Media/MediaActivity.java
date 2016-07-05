@@ -8,19 +8,22 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 
+import com.example.arcmenu.ArcMenu.Position;
 import com.example.testdemo.R;
 
 /**
  * @Author Administrator
- * @Time 2016-2-25 ÏÂÎç10:36:40
+ * @Time 2016-2-25 é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·10:36:40
  */
 public class MediaActivity extends Activity {
-
+	private static final String TAG = "MediaActivity";
 	private SoundPool mSoundPool;
 	private int mSoundID;
 
@@ -30,7 +33,6 @@ public class MediaActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.media_test);
 		mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -43,7 +45,7 @@ public class MediaActivity extends Activity {
 			public void surfaceDestroyed(SurfaceHolder holder) {
 				if (mPlayer != null)
 				{
-					mPlayer.release();
+//					mPlayer.release();
 				}
 			}
 			
@@ -79,16 +81,18 @@ public class MediaActivity extends Activity {
 			mPlayer = MediaPlayer.create(this, R.raw.sound);
 			try {
 				mPlayer.prepare();
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			if (mPlayer != null)
 			{
 				mPlayer.start();
+				mHandler.post(new GetCurPositionRunnable());
+			}
+			break;
+		case R.id.mediaplayer_seekto:
+			if (mPlayer != null){
+				mPlayer.seekTo(60*1000);
 			}
 			break;
 		case R.id.mediaplayer_pause_sound:
@@ -116,4 +120,18 @@ public class MediaActivity extends Activity {
 			break;
 		}
 	}
+	
+	private Handler mHandler = new Handler();
+	
+	private class GetCurPositionRunnable implements Runnable{
+
+		public void run() {
+			if (mPlayer != null){
+				Log.i(TAG, "getCurrentPosition = " + mPlayer.getCurrentPosition());
+			}
+			mHandler.postDelayed(GetCurPositionRunnable.this, 50);
+		}
+		
+	}
+	
 }

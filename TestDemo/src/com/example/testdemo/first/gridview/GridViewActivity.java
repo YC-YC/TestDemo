@@ -17,10 +17,10 @@ import android.widget.Toast;
 import com.example.testdemo.R;
 
 /*
- * 1¡¢×¼±¸Êı¾İÔ´
- * 2¡¢ĞÂ½¨ÊÊÅäÆ÷£¨simpleadapter£©
- * 3¡¢GridViewÌí¼ÓÊÊÅäÆ÷
- * 4¡¢ÊÂ¼ş¼àÌı
+ * 1ã€å‡†å¤‡æ•°æ®æº
+ * 2ã€æ–°å»ºé€‚é…å™¨ï¼ˆsimpleadapterï¼‰
+ * 3ã€GridViewæ·»åŠ é€‚é…å™¨
+ * 4ã€äº‹ä»¶ç›‘å¬
  */
 public class GridViewActivity extends Activity implements OnItemClickListener{
 	
@@ -39,8 +39,8 @@ public class GridViewActivity extends Activity implements OnItemClickListener{
 			R.drawable.world,
 			R.drawable.youtube};
 	
-	private String[] iconName = {"Í¨Ñ¶Â¼", "ÈÕÀú", "ÕÕÏà»ú", "Ê±ÖÓ", "ÓÎÏ·", "ĞÅÏ¢"
-			, "ÁåÉù", "ÉèÖÃ", "ÓïÒô", "ÌìÆø", "ä¯ÀÀÆ÷", "ÊÓÆµ"};
+	private String[] iconName = {"é€šè®¯å½•", "æ—¥å†", "ç…§ç›¸æœº", "æ—¶é’Ÿ", "æ¸¸æˆ", "ä¿¡æ¯"
+			, "é“ƒå£°", "è®¾ç½®", "è¯­éŸ³", "å¤©æ°”", "æµè§ˆå™¨", "è§†é¢‘"};
 	
 	private SimpleAdapter mSimpleAdapter;
 	@Override
@@ -71,10 +71,10 @@ public class GridViewActivity extends Activity implements OnItemClickListener{
 		}
 		return data;
 	}
-
+ 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		Toast.makeText(this, "µã»÷ÁË"+iconName[position], Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "ç‚¹å‡»äº†"+iconName[position], Toast.LENGTH_LONG).show();
 	}
 }

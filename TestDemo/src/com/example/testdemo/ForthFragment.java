@@ -34,7 +34,6 @@ public class ForthFragment extends Fragment implements OnClickListener{
 	private Button for_button9;
 	private Button for_button10;
 	private View mView;
-	
 	private Context mContext;
 	
 	@Override

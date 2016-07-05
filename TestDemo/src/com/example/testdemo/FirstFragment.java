@@ -45,7 +45,6 @@ public class FirstFragment extends Fragment implements OnClickListener{
 	private Button fir_button11;
 	private Button fir_button12;
 	private Button fir_button13;
-	
 	private ScrollView mScrollView;
 	
 	private Context mContext;
@@ -104,29 +103,29 @@ public class FirstFragment extends Fragment implements OnClickListener{
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				switch (event.getAction()) {
-				case MotionEvent.ACTION_UP://ËÉ¿ª
+				case MotionEvent.ACTION_UP://æ¾å¼€
 					
 					break;
-				case MotionEvent.ACTION_DOWN://°´ÏÂ
+				case MotionEvent.ACTION_DOWN://æŒ‰ä¸‹
 					
 					break;
-				case MotionEvent.ACTION_MOVE://ÒÆ¶¯
+				case MotionEvent.ACTION_MOVE://ç§»åŠ¨
 					/*
-					 * 1¡¢getScrollY--->¹ö¶¯Ìõ»¬¶¯µÄ¾àÀë
-					 * 2¡¢getMeasureHeight--->²¼¾Ö×Ü¹²¸ß¶È£¬¿ÉÄÜ±ÈgetHeight³¤
-					 * 3¡¢getHeight--->UI½çÃæÉÏµÄ¸ß¶È
+					 * 1ã€getScrollY--->æ»šåŠ¨æ¡æ»‘åŠ¨çš„è·ç¦»
+					 * 2ã€getMeasureHeight--->å¸ƒå±€æ€»å…±é«˜åº¦ï¼Œå¯èƒ½æ¯”getHeighté•¿
+					 * 3ã€getHeight--->UIç•Œé¢ä¸Šçš„é«˜åº¦
 					 */
-					//¶¥²¿
+					//é¡¶éƒ¨
 					if (mScrollView.getScrollY() <= 0)
 					{
-						Toast.makeText(mContext, "»¬¶¯µ½¶¥²¿", Toast.LENGTH_LONG).show();
+						Toast.makeText(mContext, "æ»‘åŠ¨åˆ°é¡¶éƒ¨", Toast.LENGTH_LONG).show();
 					}
-					//µ×²¿
-					//µÚÒ»¸ö×Ó²¼¾Ö¸ß¶È  <= Ò»ÆÁÄ»¸ß¶È+¹ö¶¯ÌõµÄ¹ö¶¯¾àÀë
+					//åº•éƒ¨
+					//ç¬¬ä¸€ä¸ªå­å¸ƒå±€é«˜åº¦  <= ä¸€å±å¹•é«˜åº¦+æ»šåŠ¨æ¡çš„æ»šåŠ¨è·ç¦»
 					if (mScrollView.getChildAt(0).getMeasuredHeight() <= 
 							mScrollView.getHeight() + mScrollView.getScrollY())
 					{
-						Toast.makeText(mContext, "»¬¶¯µ½µ×²¿", Toast.LENGTH_LONG).show();
+						Toast.makeText(mContext, "æ»‘åŠ¨åˆ°åº•éƒ¨", Toast.LENGTH_LONG).show();
 	
 					}
 					LOG("mScrollView.getScrollY()=" + mScrollView.getScrollY()
@@ -164,8 +163,8 @@ public class FirstFragment extends Fragment implements OnClickListener{
 			startActivity(new Intent(mContext, WebViewActivity.class));
 			break;
 		case R.id.fir_button7:
-//			mScrollView.scrollTo(0, -30);//ÓëµÚÒ»´ÎÏà±È
-			mScrollView.scrollBy(0, -30);//Ïà¶ÔÇ°Ò»´Î
+//			mScrollView.scrollTo(0, -30);//ä¸Žç¬¬ä¸€æ¬¡ç›¸æ¯”
+			mScrollView.scrollBy(0, -30);//ç›¸å¯¹å‰ä¸€æ¬¡
 			break;
 		case R.id.fir_button8:
 //			mScrollView.scrollTo(0, 30);
@@ -178,14 +177,14 @@ public class FirstFragment extends Fragment implements OnClickListener{
 			startActivity(new Intent(mContext, CppActivity.class));
 			break;	
 		case R.id.fir_button11:
-			//Í¨¹ýActionÆô¶¯
+			//é€šè¿‡Actionå¯åŠ¨
 //			startActivity(new Intent("com.example.testdemo.appshare.Main1"));
-			//Í¨¹ýdata,Çø·ÖÏàÍ¬µÄAction
+			//é€šè¿‡data,åŒºåˆ†ç›¸åŒçš„Action
 			startActivity(new Intent("com.example.testdemo.appshare.Main1",Uri.parse("app://hello")));
 			break;
 		case R.id.fir_button12:
 			Hello.sayHello(mContext);
-			//Íâ²¿Ó¦ÓÃÐèÒªÌí¼ÓÈ¨ÏÞ
+			//å¤–éƒ¨åº”ç”¨éœ€è¦æ·»åŠ æƒé™
 			startActivity(new Intent("com.example.testdemo.appshare.Main1",Uri.parse("app://hello")));
 			break;	
 		case R.id.fir_button13:

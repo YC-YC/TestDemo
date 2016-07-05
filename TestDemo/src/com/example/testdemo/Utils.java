@@ -4,7 +4,7 @@ import android.util.Log;
 
 /**
  *@Author Administrator
- *@Time 2016-3-6 ÏÂÎç11:46:24
+ *@Time 2016-3-6 ä¸‹åˆ11:46:24
  */
 public class Utils {
 	
@@ -12,4 +12,5 @@ public class Utils {
 	{
 		Log.i("FlashLight", string);
 	}
+	
 }

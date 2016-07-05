@@ -20,7 +20,6 @@ public class CppActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cpp_main);
 	}
@@ -60,12 +59,12 @@ public class CppActivity extends Activity {
 		Log.i("TestCpp", string);
 	}
 
-	//Ã°ÅİÅÅĞò,´Ó´óµ½Ğ¡
+	//å†’æ³¡æ’åº,ä»å¤§åˆ°å°
 	private void bullble() {
 		int temp;
-		for (int i = 0; i < array.length - 1; i++)//´ÎÊı
+		for (int i = 0; i < array.length - 1; i++)//æ¬¡æ•°
 		{
-			for (int j = i +1; j < array.length; j++)//Ã»ÅÅĞò¸öÊı
+			for (int j = i +1; j < array.length; j++)//æ²¡æ’åºä¸ªæ•°
 			{
 				if (array[i] < array[j])
 				{
@@ -77,14 +76,14 @@ public class CppActivity extends Activity {
 		}
 	}
 	
-	//Ã°ÅİÅÅĞò¸Ä½ø,ÓĞÎÊÌâ
+	//å†’æ³¡æ’åºæ”¹è¿›,æœ‰é—®é¢˜
 		private void bullble2() {
 			int temp;
 			int flag = 1;
-			for (int i = 0; (i < array.length - 1) && flag > 0; i++)//´ÎÊı
+			for (int i = 0; (i < array.length - 1) && flag > 0; i++)//æ¬¡æ•°
 			{
 				flag = 0;
-				for (int j = i +1; j < array.length; j++)//Ã»ÅÅĞò¸öÊı
+				for (int j = i +1; j < array.length; j++)//æ²¡æ’åºä¸ªæ•°
 				{
 					if (array[i] > array[j])
 					{
@@ -96,13 +95,13 @@ public class CppActivity extends Activity {
 				}
 			}
 		}
-		//²åÈëÅÅĞò£¬½«Ã»ÅÅĞòµÄÔªËØ·Åµ½ÒÑÅÅĞòÁĞ±íÖĞºÏÊÊÎ»ÖÃ£¬´ÓĞ¡µ½´ó
+		//æ’å…¥æ’åºï¼Œå°†æ²¡æ’åºçš„å…ƒç´ æ”¾åˆ°å·²æ’åºåˆ—è¡¨ä¸­åˆé€‚ä½ç½®ï¼Œä»å°åˆ°å¤§
 		private void insertSort() {
 			int temp;
-			for (int i = 1; i < array.length; i++)//Ã»ÅÅĞò¸öÊı
+			for (int i = 1; i < array.length; i++)//æ²¡æ’åºä¸ªæ•°
 			{
 					temp = array[i];
-					for (int j = i - 1; j >= 0; j--)//ÒÑÅÅĞòÁĞ±í
+					for (int j = i - 1; j >= 0; j--)//å·²æ’åºåˆ—è¡¨
 					{
 						if (array[j] < temp)
 						{
@@ -115,7 +114,7 @@ public class CppActivity extends Activity {
 					}
 			}
 		}
-		//¿ìËÙÅÅĞò£¬Ñ¡Ôñ»ù×¼µã£¬´óµÄÔÚÆäÇ°Ãæ£¬Ğ¡µÄÔÚÆäºóÃæ£¬µİ¹éÖ±µ½¸öÊıÖ»ÓĞÒ»¸ö£¬´Ó´óµ½Ğ¡
+		//å¿«é€Ÿæ’åºï¼Œé€‰æ‹©åŸºå‡†ç‚¹ï¼Œå¤§çš„åœ¨å…¶å‰é¢ï¼Œå°çš„åœ¨å…¶åé¢ï¼Œé€’å½’ç›´åˆ°ä¸ªæ•°åªæœ‰ä¸€ä¸ªï¼Œä»å¤§åˆ°å°
 		private void quickSort(int left, int right) {
 			if (left < right)
 			{
@@ -125,10 +124,10 @@ public class CppActivity extends Activity {
 			}
 		}
 
-		//»ñÈ¡»ù×¼µãÏÂ±ê
+		//è·å–åŸºå‡†ç‚¹ä¸‹æ ‡
 		private int parition(int left, int right) {
-			int key = array[right];	//×îºóÒ»¸öÎª»ù×¼µã
-			int i = left-1;	//Ö¸Ïò×ó±ßĞ¡ÓÚ»ù×¼µãµÄÎ»ÖÃ
+			int key = array[right];	//æœ€åä¸€ä¸ªä¸ºåŸºå‡†ç‚¹
+			int i = left-1;	//æŒ‡å‘å·¦è¾¹å°äºåŸºå‡†ç‚¹çš„ä½ç½®
 			int temp;
 			for (int j = left; j < right; j++)
 			{
@@ -140,22 +139,22 @@ public class CppActivity extends Activity {
 					array[i] = temp;
 				}
 			}
-			//½«»ù×¼µã·ÅÔÚºÏÊÊµÄÎ»ÖÃ
+			//å°†åŸºå‡†ç‚¹æ”¾åœ¨åˆé€‚çš„ä½ç½®
 			temp = array[i+1];
 			array[i+1] = array[right];
 			array[right] = temp;
 			return i+1;
 		}
 		private int parition2(int low, int high) {
-			int key = array[low];	//µÚÒ»¸öÎª»ù×¼µã
+			int key = array[low];	//ç¬¬ä¸€ä¸ªä¸ºåŸºå‡†ç‚¹
 
 			while(low < high)
 			{
-				//´ÓºóÃæÕÒµ½Ò»¸öºÏÊÊµÄÖµÓëÇ°ÃæµÄ½»»»
+				//ä»åé¢æ‰¾åˆ°ä¸€ä¸ªåˆé€‚çš„å€¼ä¸å‰é¢çš„äº¤æ¢
 				while (low < high && array[high] >= key)
 					high--;
 				swap(low,high);
-				//´ÓÇ°ÃæÕÒµ½Ò»¸öºÏÊÊµÄÖµÓëºóÃæµÄ½»»»
+				//ä»å‰é¢æ‰¾åˆ°ä¸€ä¸ªåˆé€‚çš„å€¼ä¸åé¢çš„äº¤æ¢
 				while (low < high && array[low] <= key)
 					low++;
 				swap(high,low);

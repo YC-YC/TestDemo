@@ -19,6 +19,7 @@ public class ToastActivity extends Activity implements OnClickListener {
 	private Button bt_toast3;
 	private Button bt_toast4;
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,36 +62,36 @@ public class ToastActivity extends Activity implements OnClickListener {
 	}
 
 	/*
-	 * ÏÔÊ¾Ä¬ÈÏµÄToast
+	 * æ˜¾ç¤ºé»˜è®¤çš„Toast
 	 */
 	private void showToast1() {
-		Toast.makeText(this, "ÏÔÊ¾Ä¬ÈÏµÄToast", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "æ˜¾ç¤ºé»˜è®¤çš„Toast", Toast.LENGTH_LONG).show();
 	}
 
 	/*
-	 * ¸Ä±äÎ»ÖÃµÄToast
+	 * æ”¹å˜ä½ç½®çš„Toast
 	 */
 	private void showToast2() {
-		Toast toast = Toast.makeText(this, "¸Ä±äÎ»ÖÃµÄToast", Toast.LENGTH_LONG);
+		Toast toast = Toast.makeText(this, "æ”¹å˜ä½ç½®çš„Toast", Toast.LENGTH_LONG);
 		toast.setGravity(Gravity.CENTER, 50, 0);
 		toast.show();
 	}
 
 	/*
-	 * ÏÔÊ¾´øÍ¼Æ¬µÄToast
+	 * æ˜¾ç¤ºå¸¦å›¾ç‰‡çš„Toast
 	 */
 	private void showToast3() {
-		Toast toast = Toast.makeText(this, "ÏÔÊ¾´øÍ¼Æ¬µÄToast", Toast.LENGTH_LONG);
+		Toast toast = Toast.makeText(this, "æ˜¾ç¤ºå¸¦å›¾ç‰‡çš„Toast", Toast.LENGTH_LONG);
 		LinearLayout toast_layout = (LinearLayout) toast.getView();
 		ImageView imageView = new ImageView(this);
 		imageView.setImageResource(R.drawable.ic_launcher);
-		toast_layout.addView(imageView, 0);// indexÎªÎ»ÖÃ
+		toast_layout.addView(imageView, 0);// indexä¸ºä½ç½®
 		toast.setView(toast_layout);
 		toast.show();
 	}
 
 	/*
-	 * ÍêÈ«×Ô¶¨ÒåµÄToast
+	 * å®Œå…¨è‡ªå®šä¹‰çš„Toast
 	 */
 	private void showToast4() {
 		LayoutInflater inflater = LayoutInflater.from(this);

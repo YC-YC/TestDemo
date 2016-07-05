@@ -9,10 +9,10 @@ import com.example.testdemo.R;
 
 public class TreeHelper {
 	/*
-	 * ½«ÓÃ»§µÄÊı¾İ×ª»»³ÉÊ÷ĞÎÊı¾İ
-	 * Í¨¹ı¡°·´Éä¡±+¡°×¢½â¡±»ñÈ¡×Ö¶Î£¬Ìî³äList(Ìí¼ÓAnotation)²¢Å×³öÒì³£
-	 * ÅÅĞò
-	 * ¹ıÂË³öĞèÒªÏÔÊ¾µÄÊı¾İ
+	 * å°†ç”¨æˆ·çš„æ•°æ®è½¬æ¢æˆæ ‘å½¢æ•°æ®
+	 * é€šè¿‡â€œåå°„â€+â€œæ³¨è§£â€è·å–å­—æ®µï¼Œå¡«å……List(æ·»åŠ Anotation)å¹¶æŠ›å‡ºå¼‚å¸¸
+	 * æ’åº
+	 * è¿‡æ»¤å‡ºéœ€è¦æ˜¾ç¤ºçš„æ•°æ®
 	 * 
 	 */
 	public static <T> List<Node> convertData2Nodes(List<T> datas) throws IllegalAccessException, IllegalArgumentException
@@ -28,19 +28,19 @@ public class TreeHelper {
 			Field[] fields = clazz.getDeclaredFields();
 			for (Field field:fields)
 			{
-				if (field.getAnnotation(TreeNodeId.class) != null)//ÓĞ×¢ÊÍ
+				if (field.getAnnotation(TreeNodeId.class) != null)//æœ‰æ³¨é‡Š
 				{
 					field.setAccessible(true);
 					id = field.getInt(t);
 				}
 				
-				if (field.getAnnotation(TreeNodePid.class) != null)//ÓĞ×¢ÊÍ
+				if (field.getAnnotation(TreeNodePid.class) != null)//æœ‰æ³¨é‡Š
 				{
 					field.setAccessible(true);
 					pid = field.getInt(t);
 				}
 				
-				if (field.getAnnotation(TreeNodeLabel.class) != null)//ÓĞ×¢ÊÍ
+				if (field.getAnnotation(TreeNodeLabel.class) != null)//æœ‰æ³¨é‡Š
 				{
 					field.setAccessible(true);
 					label = (String) field.get(t);
@@ -49,9 +49,8 @@ public class TreeHelper {
 			node = new Node(id, pid, label);
 			nodes.add(node);
 		}
-		
 		/*
-		 * ËùÓĞ½Úµã½øĞĞ¹ØÏµÅÅĞò
+		 * æ‰€æœ‰èŠ‚ç‚¹è¿›è¡Œå…³ç³»æ’åº
 		 */
 		for (int i = 0; i < nodes.size(); i++)
 		{
@@ -60,12 +59,12 @@ public class TreeHelper {
 			{
 				Node node2 = nodes.get(j);
 				
-				if (node2.getPid() == node1.getId())//node2µÄ¸¸½ÚµãÊ±node1µÄ½Úµã£¬Ôò½«node2¼Óµ½node1
+				if (node2.getPid() == node1.getId())//node2çš„çˆ¶èŠ‚ç‚¹æ—¶node1çš„èŠ‚ç‚¹ï¼Œåˆ™å°†node2åŠ åˆ°node1
 				{
 					node1.getChild().add(node2);
 					node2.setParent(node1);
 				}
-				else if (node2.getId() == node1.getPid())//node2µÄ½ÚµãÊ±node1µÄ¸¸½Úµã£¬Ôò½«node2¼Óµ½node1
+				else if (node2.getId() == node1.getPid())//node2çš„èŠ‚ç‚¹æ—¶node1çš„çˆ¶èŠ‚ç‚¹ï¼Œåˆ™å°†node2åŠ åˆ°node1
 				{
 					node2.getChild().add(node1);
 					node1.setParent(node2);
@@ -75,7 +74,7 @@ public class TreeHelper {
 		}
 		
 		/*
-		 * ÎªNodeÉèÖÃÍ¼Æ¬
+		 * ä¸ºNodeè®¾ç½®å›¾ç‰‡
 		 */
 		for (Node n: nodes)
 		{
@@ -85,7 +84,7 @@ public class TreeHelper {
 	}
 
 	/*
-	 * ÎªNodeÉèÖÃÍ¼Æ¬
+	 * ä¸ºNodeè®¾ç½®å›¾ç‰‡
 	 */
 	private static void setNodeIcon(Node n) {
 		if (n.getChild().size() > 0 && n.isExpand())
@@ -103,7 +102,7 @@ public class TreeHelper {
 	}
 	
 	/*
-	 * ÅÅĞò
+	 * æ’åº
 	 */
 	public static <T> List<Node> getSortedNodes(List<T> datas, int defaultExpandLevel) throws IllegalAccessException, IllegalArgumentException
 	{
@@ -120,7 +119,7 @@ public class TreeHelper {
 		return result;
 	}
 
-	//ÒÔ¸ù½ÚµãÎª»ù´¡Ìí¼Ó×Ó½Úµã
+	//ä»¥æ ¹èŠ‚ç‚¹ä¸ºåŸºç¡€æ·»åŠ å­èŠ‚ç‚¹
 	private static void addNode(List<Node> result, Node node,
 			int defaultExpandLevel, int currentLevel) {
 		result.add(node);
@@ -136,7 +135,7 @@ public class TreeHelper {
 		}
 	}
 
-	//´ÓËùÓĞ½ÚµãÖĞ»ñÈ¡¸ù½Úµã
+	//ä»æ‰€æœ‰èŠ‚ç‚¹ä¸­è·å–æ ¹èŠ‚ç‚¹
 	private static List<Node> getRootNodes(List<Node> nodes) {
 		List<Node> root = new ArrayList<Node>();
 		for (Node n :nodes)
@@ -150,7 +149,7 @@ public class TreeHelper {
 	}
 	
 	/*
-	 * ¹ıÂË³öĞèÒªÏÔÊ¾µÄÊı¾İ
+	 * è¿‡æ»¤å‡ºéœ€è¦æ˜¾ç¤ºçš„æ•°æ®
 	 */
 	public static List<Node> filterVisibleNodes(List<Node> datas)
 	{

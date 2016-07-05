@@ -12,19 +12,17 @@ import android.widget.TextView;
 
 /**
  * @author YC
- * @time 2016-3-4 ÏÂÎç4:38:14
+ * @time 2016-3-4 ä¸‹åˆ4:38:14
  */
 public class DictionaryAdapter extends CursorAdapter {
 
 	private LayoutInflater layoutInflater;
 	/**
 	 * @param context
-	 * @param c
 	 * @param autoRequery
 	 */
 	public DictionaryAdapter(Context context, Cursor c, boolean autoRequery) {
 		super(context, c, autoRequery);
-		// TODO ×Ô¶¯Éú³ÉµÄ¹¹Ôìº¯Êı´æ¸ù
 		layoutInflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
@@ -33,7 +31,7 @@ public class DictionaryAdapter extends CursorAdapter {
 	
 	@Override
 	public CharSequence convertToString(Cursor cursor) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 //		return super.convertToString(cursor);
 		return cursor==null ? "" :cursor.getString(cursor.getColumnIndex("_id"));
 	}

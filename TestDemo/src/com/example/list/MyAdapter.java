@@ -23,7 +23,7 @@ public class MyAdapter extends BaseAdapter {
 	}
 	
 	/*
-	 * 更新数据
+	 * 鏇存柊鏁版嵁
 	 */
 	public void OnDataChange(ArrayList<ApkBean> list){
 		this.list = list;
@@ -71,5 +71,4 @@ public class MyAdapter extends BaseAdapter {
 		TextView apkInfo;
 		TextView apkDes;
 	}
-
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:orientation="vertical" >
 
     <TextView
@@ -13,6 +14,7 @@
     <SeekBar
         android:id="@+id/seekBar1"
         style="@android:style/Widget.SeekBar"
+        android:progressDrawable="@drawable/custom_progress"
         android:thumb="@drawable/my_thunb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 

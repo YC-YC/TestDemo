@@ -16,27 +16,28 @@ public class SubMenuActivity extends Activity {
 		setContentView(R.layout.menu_option);
 	}
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		/*
-		 * ÊÖ¶¯Ìí¼Ó
+		 * æ‰‹åŠ¨æ·»åŠ 
 		 */
-		/*SubMenu file = menu.addSubMenu("ÎÄ¼ş");
-		SubMenu edit = menu.addSubMenu("±à¼­");
-		file.setHeaderTitle("ÎÄ¼ş²Ù×÷");
+		/*SubMenu file = menu.addSubMenu("æ–‡ä»¶");
+		SubMenu edit = menu.addSubMenu("ç¼–è¾‘");
+		file.setHeaderTitle("æ–‡ä»¶æ“ä½œ");
 		file.setHeaderIcon(R.drawable.ic_launcher);
-		file.add(1, 1, 1, "ĞÂ½¨");
-		file.add(1, 2, 1, "´ò¿ª");
-		file.add(1, 3, 1, "±£´æ");
+		file.add(1, 1, 1, "æ–°å»º");
+		file.add(1, 2, 1, "æ‰“å¼€");
+		file.add(1, 3, 1, "ä¿å­˜");
 
-		edit.setHeaderTitle("±à¼­²Ù×÷");
+		edit.setHeaderTitle("ç¼–è¾‘æ“ä½œ");
 		edit.setHeaderIcon(R.drawable.ic_launcher);
-		edit.add(2, 1, 1, "¸´ÖÆ");
-		edit.add(2, 2, 1, "Õ³Ìù");
-		edit.add(2, 3, 1, "¼ôÇĞ");*/
+		edit.add(2, 1, 1, "å¤åˆ¶");
+		edit.add(2, 2, 1, "ç²˜è´´");
+		edit.add(2, 3, 1, "å‰ªåˆ‡");*/
 		
 		/*
-		 * xmlÌí¼Ó
+		 * xmlæ·»åŠ 
 		 */
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.sub_menu, menu);
@@ -49,30 +50,30 @@ public class SubMenuActivity extends Activity {
 			switch (item.getItemId()) {
 			case 1:
 			case R.id.submenu1_1:
-				Toast.makeText(this, "µã»÷ÁËĞÂ½¨", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†æ–°å»º", Toast.LENGTH_SHORT).show();
 				break;
 			case 2:
 			case R.id.submenu1_2:
-				Toast.makeText(this, "µã»÷ÁË´ò¿ª", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†æ‰“å¼€", Toast.LENGTH_SHORT).show();
 				break;
 			case 3:
 			case R.id.submenu1_3:
-				Toast.makeText(this, "µã»÷ÁË±£´æ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†ä¿å­˜", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.submenu1_4:
-				Toast.makeText(this, "µã»÷ÁËÁí´æÎª", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†å¦å­˜ä¸º", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.submenu2_1:
-				Toast.makeText(this, "µã»÷ÁË¸´ÖÆ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†å¤åˆ¶", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.submenu2_2:
-				Toast.makeText(this, "µã»÷ÁËÕ³Ìù", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†ç²˜è´´", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.submenu2_3:
-				Toast.makeText(this, "µã»÷ÁË¼ôÇĞ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†å‰ªåˆ‡", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.submenu2_4:
-				Toast.makeText(this, "µã»÷ÁËÉ¾³ı", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ç‚¹å‡»äº†åˆ é™¤", Toast.LENGTH_SHORT).show();
 				break;
 			default:
 				break;
@@ -81,18 +82,18 @@ public class SubMenuActivity extends Activity {
 //			switch (item.getItemId()) {
 //			case 1:
 //			case R.id.submenu2_1:
-//				Toast.makeText(this, "µã»÷ÁË¸´ÖÆ", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(this, "ç‚¹å‡»äº†å¤åˆ¶", Toast.LENGTH_SHORT).show();
 //				break;
 //			case 2:
 //			case R.id.submenu2_2:
-//				Toast.makeText(this, "µã»÷ÁËÕ³Ìù", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(this, "ç‚¹å‡»äº†ç²˜è´´", Toast.LENGTH_SHORT).show();
 //				break;
 //			case 3:
 //			case R.id.submenu2_3:
-//				Toast.makeText(this, "µã»÷ÁË¼ôÇĞ", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(this, "ç‚¹å‡»äº†å‰ªåˆ‡", Toast.LENGTH_SHORT).show();
 //				break;
 //			case R.id.submenu2_4:
-//				Toast.makeText(this, "µã»÷ÁËÉ¾³ı", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(this, "ç‚¹å‡»äº†åˆ é™¤", Toast.LENGTH_SHORT).show();
 //				break;
 //			}
 //		}

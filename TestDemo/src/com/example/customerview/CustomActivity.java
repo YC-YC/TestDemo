@@ -9,16 +9,15 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 /*
- * 1、定义属性atts.xml
- * 2、自定义类TopBar.java
- * 3、引用自定义View
+ * 1銆佸畾涔夊睘鎬tts.xml
+ * 2銆佽嚜瀹氫箟绫籘opBar.java
+ * 3銆佸紩鐢ㄨ嚜瀹氫箟View
  * 
  */
 public class CustomActivity extends Activity implements topbarClickListener{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.custom_main);
 		Topbar topbar = (Topbar) findViewById(R.id.topbar);
@@ -27,12 +26,12 @@ public class CustomActivity extends Activity implements topbarClickListener{
 
 	@Override
 	public void leftClick() {
-		Toast.makeText(CustomActivity.this, "点击了左按键", Toast.LENGTH_SHORT).show();
+		Toast.makeText(CustomActivity.this, "鐐瑰嚮浜嗗乏鎸夐敭", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void rightClick() {
-		Toast.makeText(CustomActivity.this, "点击了右按键", Toast.LENGTH_SHORT).show();
+		Toast.makeText(CustomActivity.this, "鐐瑰嚮浜嗗彸鎸夐敭", Toast.LENGTH_SHORT).show();
 		
 	}
 }

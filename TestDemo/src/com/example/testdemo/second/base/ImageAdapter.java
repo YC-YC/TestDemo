@@ -20,7 +20,6 @@ public class ImageAdapter extends BaseAdapter {
 	}
 	@Override
 	public int getCount() {
-//		return icons.length;
 		return Integer.MAX_VALUE;
 	}
 

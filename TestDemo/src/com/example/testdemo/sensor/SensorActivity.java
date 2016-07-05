@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 /**
  * @author YC
- * @time 2016-2-29 ÉÏÎç9:32:55
+ * @time 2016-2-29 ä¸Šåˆ9:32:55
  */
 public class SensorActivity extends Activity implements OnClickListener, SensorEventListener {
 	
@@ -30,7 +30,6 @@ public class SensorActivity extends Activity implements OnClickListener, SensorE
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sensor_main);
 		mBtnStart = (Button) findViewById(R.id.btn_sensor_start);
@@ -49,16 +48,16 @@ public class SensorActivity extends Activity implements OnClickListener, SensorE
 		case R.id.btn_sensor_start:
 			mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 			mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_FASTEST);
-			msg = "¿ªÊ¼¼ÆÊı";
+			msg = "å¼€å§‹è®¡æ•°";
 			break;
 		case R.id.btn_sensor_reset:
 			mCount = 0;
-			msg = "ÖØÖÃ¼ÆÊı";
+			msg = "é‡ç½®è®¡æ•°";
 			break;
 		case R.id.btn_sensor_stop:
 			mSensorManager.unregisterListener(this);
 			mCount = 0;
-			msg = "½áÊø¼ÆÊı";
+			msg = "ç»“æŸè®¡æ•°";
 			break;
 		default:
 			break;
@@ -83,7 +82,7 @@ public class SensorActivity extends Activity implements OnClickListener, SensorE
 	}
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		
 	}
 }

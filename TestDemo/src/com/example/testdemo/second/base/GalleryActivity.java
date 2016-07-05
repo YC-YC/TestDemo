@@ -35,12 +35,11 @@ public class GalleryActivity extends Activity implements OnItemSelectedListener,
 	private ImageSwitcher mImageSwitcher = null;
 	
 	/*
-	 * 1¡¢×¼±¸Êı¾İÔ´
-	 * 2¡¢ÊÊÅäÆ÷
+	 * 1ã€å‡†å¤‡æ•°æ®æº
+	 * 2ã€é€‚é…å™¨
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gallery);
 		
@@ -54,7 +53,7 @@ public class GalleryActivity extends Activity implements OnItemSelectedListener,
 		
 		mImageSwitcher = (ImageSwitcher) findViewById(R.id.imgSwitch);
 		mImageSwitcher.setFactory(this);
-		//ÉèÖÃ¶¯»­Ğ§¹û
+		//è®¾ç½®åŠ¨ç”»æ•ˆæœ
 		mImageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
 		mImageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));
 	}
@@ -71,13 +70,13 @@ public class GalleryActivity extends Activity implements OnItemSelectedListener,
 	}
 
 	/*
-	 * ÊÓÍ¼¹¤³§(non-Javadoc)
+	 * è§†å›¾å·¥å‚(non-Javadoc)
 	 * @see android.widget.ViewSwitcher.ViewFactory#makeView()
 	 */
 	@Override
 	public View makeView() {
 		ImageView imageView = new ImageView(GalleryActivity.this);
-		//°´±ÈÀıËõ·Å
+		//æŒ‰æ¯”ä¾‹ç¼©æ”¾
 		imageView.setScaleType(ScaleType.FIT_CENTER);
 		return imageView;
 	}

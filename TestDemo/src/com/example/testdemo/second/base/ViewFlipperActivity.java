@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 /*
- * 1¡¢¿É¾²Ì¬¼ÓÔØ£¨xml¼ÓÔØ£©
- * 2¡¢¿É¶¯Ì¬¼ÓÔØ£¨´úÂë¼ÓÔØ£©
+ * 1ã€å¯é™æ€åŠ è½½ï¼ˆxmlåŠ è½½ï¼‰
+ * 2ã€å¯åŠ¨æ€åŠ è½½ï¼ˆä»£ç åŠ è½½ï¼‰
  */
 public class ViewFlipperActivity extends Activity {
 
@@ -29,7 +29,6 @@ public class ViewFlipperActivity extends Activity {
 		
 		initView();
 	}
-	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
@@ -41,23 +40,23 @@ public class ViewFlipperActivity extends Activity {
 			mStartX = event.getX();
 			break;
 		case MotionEvent.ACTION_UP:
-			if (event.getX() - mStartX > 100)//ÏòÓÒ
+			if (event.getX() - mStartX > 100)//å‘å³
 			{
-				//ÉèÖÃ½øÈë¶¯»­
+				//è®¾ç½®è¿›å…¥åŠ¨ç”»
 				mViewFlipper.setInAnimation(this, R.anim.left_in);
-				//ÉèÖÃÍË³ö¶¯»­
+				//è®¾ç½®é€€å‡ºåŠ¨ç”»
 				mViewFlipper.setOutAnimation(this, R.anim.left_out);
-				//ÏÔÊ¾Ç°Ò»Ò³
+				//æ˜¾ç¤ºå‰ä¸€é¡µ
 				mViewFlipper.showPrevious();
 			}
 			
-			if (event.getX() - mStartX < -100)//Ïò×ó
+			if (event.getX() - mStartX < -100)//å‘å·¦
 			{
-				//ÉèÖÃ½øÈë¶¯»­
+				//è®¾ç½®è¿›å…¥åŠ¨ç”»
 				mViewFlipper.setInAnimation(this, R.anim.right_in);
-				//ÉèÖÃÍË³ö¶¯»­
+				//è®¾ç½®é€€å‡ºåŠ¨ç”»
 				mViewFlipper.setOutAnimation(this, R.anim.right_out);
-				//ÏÔÊ¾Ç°Ò»Ò³
+				//æ˜¾ç¤ºå‰ä¸€é¡µ
 				mViewFlipper.showNext();
 			}
 			break;
@@ -70,18 +69,18 @@ public class ViewFlipperActivity extends Activity {
 	
 	private void initView() {
 		mViewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
-		//¶¯Ì¬¼ÓÔØ
+		//åŠ¨æ€åŠ è½½
 		for (int iconid : icons) {
 			mViewFlipper.addView(getImageView(iconid));
 		}
 		
-		//ÉèÖÃ½øÈë¶¯»­
+		//è®¾ç½®è¿›å…¥åŠ¨ç”»
 		mViewFlipper.setInAnimation(this, R.anim.left_in);
-		//ÉèÖÃÍË³ö¶¯»­
+		//è®¾ç½®é€€å‡ºåŠ¨ç”»
 		mViewFlipper.setOutAnimation(this, R.anim.left_out);
-		//ÉèÖÃ²¥·ÅÊ±¼ä
+		//è®¾ç½®æ’­æ”¾æ—¶é—´
 		mViewFlipper.setFlipInterval(3000);
-		//¿ªÊ¼¶¯»­
+		//å¼€å§‹åŠ¨ç”»
 		mViewFlipper.startFlipping();
 	}
 	private View getImageView(int iconid) {

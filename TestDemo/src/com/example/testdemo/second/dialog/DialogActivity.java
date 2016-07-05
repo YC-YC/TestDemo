@@ -19,10 +19,9 @@ public class DialogActivity extends Activity implements OnClickListener {
 	private Button bt_dialog3;
 	private Button bt_dialog4;
 	private Button bt_dialog5;
-
-	String[] single_list = { "×¨¿ÆÉú", "±¾¿ÆÉú", "ÑĞ¾¿Éú", "Ë¶Ê¿Éú" };
-	String[] mult_list = { "×ãÇò", "ÀºÇò", "Æ¹ÅÒÇò", "ÓğÃ«Çò" };
-	String[] item_list = { "ÓïÎÄ", "ÊıÑ§", "Ó¢Óï"};
+	String[] single_list = { "ä¸“ç§‘ç”Ÿ", "æœ¬ç§‘ç”Ÿ", "ç ”ç©¶ç”Ÿ", "ç¡•å£«ç”Ÿ" };
+	String[] mult_list = { "è¶³çƒ", "ç¯®çƒ", "ä¹’ä¹“çƒ", "ç¾½æ¯›çƒ" };
+	String[] item_list = { "è¯­æ–‡", "æ•°å­¦", "è‹±è¯­"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,26 +71,26 @@ public class DialogActivity extends Activity implements OnClickListener {
 	}
 
 	/*
-	 * È·ÈÏ¶Ô»°¿ò
+	 * ç¡®è®¤å¯¹è¯æ¡†
 	 */
 	private void showDialog1() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("È·ÈÏ¶Ô»°¿ò");
+		builder.setTitle("ç¡®è®¤å¯¹è¯æ¡†");
 		builder.setIcon(R.drawable.ic_launcher);
-		builder.setMessage("È·ÈÏ¶Ô»°¿òÌáÊ¾ÄÚÈİ");
-		builder.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		builder.setMessage("ç¡®è®¤å¯¹è¯æ¡†æç¤ºå†…å®¹");
+		builder.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Toast.makeText(DialogActivity.this, "µã»÷ÁËÈ·ÈÏ", Toast.LENGTH_LONG)
+				Toast.makeText(DialogActivity.this, "ç‚¹å‡»äº†ç¡®è®¤", Toast.LENGTH_LONG)
 						.show();
 			}
 		});
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Toast.makeText(DialogActivity.this, "µã»÷ÁËÈ¡Ïû", Toast.LENGTH_LONG)
+				Toast.makeText(DialogActivity.this, "ç‚¹å‡»äº†å–æ¶ˆ", Toast.LENGTH_LONG)
 						.show();
 			}
 		});
@@ -100,11 +99,11 @@ public class DialogActivity extends Activity implements OnClickListener {
 	}
 
 	/*
-	 * µ¥Ñ¡°´¼ü¶Ô»°¿ò
+	 * å•é€‰æŒ‰é”®å¯¹è¯æ¡†
 	 */
 	private void showDialog2() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("µ¥Ñ¡°´¼ü¶Ô»°¿ò");
+		builder.setTitle("å•é€‰æŒ‰é”®å¯¹è¯æ¡†");
 		builder.setIcon(R.drawable.ic_launcher);
 		builder.setSingleChoiceItems(single_list, 0,
 				new DialogInterface.OnClickListener() {
@@ -112,7 +111,7 @@ public class DialogActivity extends Activity implements OnClickListener {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						Toast.makeText(DialogActivity.this,
-								"µã»÷ÁË " + single_list[which], Toast.LENGTH_LONG)
+								"ç‚¹å‡»äº† " + single_list[which], Toast.LENGTH_LONG)
 								.show();
 					}
 				});
@@ -121,11 +120,11 @@ public class DialogActivity extends Activity implements OnClickListener {
 	}
 
 	/*
-	 * ¶àÑ¡°´¼ü¶Ô»°¿ò
+	 * å¤šé€‰æŒ‰é”®å¯¹è¯æ¡†
 	 */
 	private void showDialog3() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("¶àÑ¡°´¼ü¶Ô»°¿ò");
+		builder.setTitle("å¤šé€‰æŒ‰é”®å¯¹è¯æ¡†");
 		builder.setIcon(R.drawable.ic_launcher);
 		builder.setMultiChoiceItems(mult_list, null,
 				new DialogInterface.OnMultiChoiceClickListener() {
@@ -135,15 +134,15 @@ public class DialogActivity extends Activity implements OnClickListener {
 							boolean isChecked) {
 						String str = mult_list[which];
 						if (isChecked) {
-							Toast.makeText(DialogActivity.this, "Ñ¡ÖĞÁË " + str,
+							Toast.makeText(DialogActivity.this, "é€‰ä¸­äº† " + str,
 									Toast.LENGTH_SHORT).show();
 						} else {
-							Toast.makeText(DialogActivity.this, "È¡ÏûÁË " + str,
+							Toast.makeText(DialogActivity.this, "å–æ¶ˆäº† " + str,
 									Toast.LENGTH_SHORT).show();
 						}
 					}
 				});
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -155,22 +154,22 @@ public class DialogActivity extends Activity implements OnClickListener {
 	}
 
 	/*
-	 * ÁĞ±í¶Ô»°¿ò
+	 * åˆ—è¡¨å¯¹è¯æ¡†
 	 */
 	private void showDialog4() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("¶àÑ¡°´¼ü¶Ô»°¿ò");
+		builder.setTitle("å¤šé€‰æŒ‰é”®å¯¹è¯æ¡†");
 		builder.setIcon(R.drawable.ic_launcher);
 		builder.setItems(item_list, new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String str = item_list[which];
-				Toast.makeText(DialogActivity.this, "Ñ¡ÔñÁË " + str,
+				Toast.makeText(DialogActivity.this, "é€‰æ‹©äº† " + str,
 						Toast.LENGTH_SHORT).show();
 			}
 		});
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -182,11 +181,11 @@ public class DialogActivity extends Activity implements OnClickListener {
 	}
 	
 	/*
-	 * ×Ô¶¨Òå¶Ô»°¿ò
+	 * è‡ªå®šä¹‰å¯¹è¯æ¡†
 	 */
 	private void showDialog5() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("×Ô¶¨Òå¶Ô»°¿ò");
+		builder.setTitle("è‡ªå®šä¹‰å¯¹è¯æ¡†");
 		builder.setIcon(R.drawable.ic_launcher);
 		LayoutInflater inflater = LayoutInflater.from(this);
 		View view = inflater.inflate(R.layout.mydialog, null);

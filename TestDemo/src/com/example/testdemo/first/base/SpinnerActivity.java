@@ -15,11 +15,11 @@ import android.widget.TextView;
 import com.example.testdemo.R;
 
 /*
- * 1¡¢Ìí¼ÓÊı¾İÔ´
- * 2¡¢¶¨ÒåÊÊÅäÆ÷
- * 3¡¢ÉèÖÃÏÂÀ­²Ëµ¥ ÑùÊ½
- * 4¡¢Ìí¼ÓÊÊÅäÆ÷µ½ÏÂÀ­ÁĞ±íÖĞ
- * 5¡¢ÉèÖÃµã»÷ÏìÓ¦ÊÂ¼ş
+ * 1ã€æ·»åŠ æ•°æ®æº
+ * 2ã€å®šä¹‰é€‚é…å™¨
+ * 3ã€è®¾ç½®ä¸‹æ‹‰èœå• æ ·å¼
+ * 4ã€æ·»åŠ é€‚é…å™¨åˆ°ä¸‹æ‹‰åˆ—è¡¨ä¸­
+ * 5ã€è®¾ç½®ç‚¹å‡»å“åº”äº‹ä»¶
  */
 public class SpinnerActivity extends Activity implements OnItemSelectedListener{
 	
@@ -40,12 +40,11 @@ public class SpinnerActivity extends Activity implements OnItemSelectedListener{
 	private void initView() {
 		mTextView = (TextView) findViewById(R.id.spinner_tv);
 		mSpinner = (Spinner) findViewById(R.id.spinner1);
-		
-		mTextView.setText("Ñ¡ÔñµÄ³ÇÊĞÊÇ£º±±¾©");
-		mData.add("±±¾©");
-		mData.add("ÉÏº£");
-		mData.add("¹ãÖİ");
-		mData.add("ÉîÛÚ");
+		mTextView.setText("é€‰æ‹©çš„åŸå¸‚æ˜¯ï¼šåŒ—äº¬");
+		mData.add("åŒ—äº¬");
+		mData.add("ä¸Šæµ·");
+		mData.add("å¹¿å·");
+		mData.add("æ·±åœ³");
 		
 		mAdapter = new ArrayAdapter<String>(this, 
 				android.R.layout.simple_spinner_item, 
@@ -60,7 +59,7 @@ public class SpinnerActivity extends Activity implements OnItemSelectedListener{
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
-		mTextView.setText("Ñ¡ÔñµÄ³ÇÊĞÊÇ£º" + mAdapter.getItem(position));
+		mTextView.setText("é€‰æ‹©çš„åŸå¸‚æ˜¯ï¼š" + mAdapter.getItem(position));
 	}
 
 	@Override

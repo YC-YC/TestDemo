@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.Window;
 
 /*
- * Ò»¡¢Ò»°ãµÄ²à»®
- * 1¡¢ViewGroup Menu+content
- * 2¡¢onTouchEvent
- * MOVE:ViewGroupµÄleftMargin
- * UP:¸ù¾İÏÔÊ¾²Ëµ¥µÄ¿í¶È£¬¾ö¶¨Òş²Ø»òÏÔÊ¾£¨ÓÃScroller»òLeftMargin+Thread£©
+ * ä¸€ã€ä¸€èˆ¬çš„ä¾§åˆ’
+ * 1ã€ViewGroup Menu+content
+ * 2ã€onTouchEvent
+ * MOVE:ViewGroupçš„leftMargin
+ * UP:æ ¹æ®æ˜¾ç¤ºèœå•çš„å®½åº¦ï¼Œå†³å®šéšè—æˆ–æ˜¾ç¤ºï¼ˆç”¨Scrolleræˆ–LeftMargin+Threadï¼‰
  * 
- * ¶ş¡¢¼Ì³ĞHorizontalScrollView
- * 1¡¢²¼¾Ö
+ * äºŒã€ç»§æ‰¿HorizontalScrollView
+ * 1ã€å¸ƒå±€
  * 
  */
 public class SlidingActivity extends Activity {
@@ -24,7 +24,6 @@ public class SlidingActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.slidermenu_main);

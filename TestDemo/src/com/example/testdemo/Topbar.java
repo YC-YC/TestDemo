@@ -31,11 +31,10 @@ public class Topbar extends RelativeLayout{
 	
 	private LayoutParams leftParams, rightParams, titleParams;
 	Context mContext = null;
-	
 	private topbarClickListener mListener;
 	
 	/*
-	 * Ìí¼Ó»Øµ÷½Ó¿Ú
+	 * æ·»åŠ å›è°ƒæ¥å£
 	 */
 	public interface topbarClickListener{
 		public void leftClick();
@@ -50,10 +49,10 @@ public class Topbar extends RelativeLayout{
 	public Topbar( Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mContext = context;
-		//ÔØÈëatts.xmlÊôĞÔ
+		//è½½å…¥atts.xmlå±æ€§
 		TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.Topbar);
 	
-		//·ÖÅäÊôĞÔ
+		//åˆ†é…å±æ€§
 		leftTextColor = ta.getColor(R.styleable.Topbar_leftTextColor, 0);
 		leftBackground = ta.getDrawable(R.styleable.Topbar_leftBackground);
 		leftText = ta.getString(R.styleable.Topbar_leftText);
@@ -67,15 +66,15 @@ public class Topbar extends RelativeLayout{
 		titleTextColor = ta.getColor(R.styleable.Topbar_titleTextColor, 255);
 		title = ta.getString(R.styleable.Topbar_title);
 		
-		//»ØÊÕ×ÊÔ´
+		//å›æ”¶èµ„æº
 		ta.recycle();
 		
-		//´´½¨¿Ø¼ş
+		//åˆ›å»ºæ§ä»¶
 		leftButton = new Button(context);
 		rightButton = new Button(context);
 		tvTitle = new TextView(context);
 		
-		//ÉèÖÃÊôĞÔ
+		//è®¾ç½®å±æ€§
 		leftButton.setTextColor(leftTextColor);
 		leftButton.setBackground(leftBackground);
 		leftButton.setText(leftText);
@@ -92,7 +91,7 @@ public class Topbar extends RelativeLayout{
 		
 		setBackgroundColor(0XFFF59563);
 		
-		//ÉèÖÃ²¼¾ÖÊôĞÔ
+		//è®¾ç½®å¸ƒå±€å±æ€§
 		leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 
 				LayoutParams.WRAP_CONTENT);
 		leftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);

@@ -4,7 +4,7 @@ import android.app.Application;
 
 /**
  *@Author Administrator
- *@Time 2016-2-24 ÏÂÎç7:42:55
+ *@Time 2016-2-24 ä¸‹åˆ7:42:55
  */
 public class App extends Application {
 
@@ -18,11 +18,10 @@ public class App extends Application {
 		this.mShareString = mShareString;
 	}
 	
-	//ÉúÃüÖÜÆÚ
-	//´´½¨Ó¦ÓÃÊ±µ÷ÓÃ£¬±ÈÆäËüActivityÔçÖ´ĞĞ
+	//ç”Ÿå‘½å‘¨æœŸ
+	//åˆ›å»ºåº”ç”¨æ—¶è°ƒç”¨ï¼Œæ¯”å…¶å®ƒActivityæ—©æ‰§è¡Œ
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
 		super.onCreate();
 	}
 	
@@ -38,7 +37,7 @@ public class App extends Application {
 		super.onLowMemory();
 	}
 	
-	//ÄÚ´æÇåÀí
+	//å†…å­˜æ¸…ç†
 	@Override
 	public void onTrimMemory(int level) {
 		// TODO Auto-generated method stub

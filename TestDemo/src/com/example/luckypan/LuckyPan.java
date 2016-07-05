@@ -17,14 +17,13 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
 /*
- * SurfaceView «‘⁄“ª∏ˆ◊”œﬂ≥Ã÷–∂‘◊‘º∫Ω¯––ªÊ÷∆£¨”≈ ∆ «±‹√‚‘Ï≥…UIœﬂ≥Ãµƒ◊Ë»˚
- * SurfaceView∞¸∫¨“ª∏ˆ◊®√≈”√”⁄ªÊ÷∆µƒSurface£¨Surface÷–∫¨”–“ª∏ˆCanvas
+ * SurfaceViewÊòØÂú®‰∏Ä‰∏™Â≠êÁ∫øÁ®ã‰∏≠ÂØπËá™Â∑±ËøõË°åÁªòÂà∂Ôºå‰ºòÂäøÊòØÈÅøÂÖçÈÄ†ÊàêUIÁ∫øÁ®ãÁöÑÈòªÂ°û
+ * SurfaceViewÂåÖÂê´‰∏Ä‰∏™‰∏ìÈó®Áî®‰∫éÁªòÂà∂ÁöÑSurfaceÔºåSurface‰∏≠Âê´Êúâ‰∏Ä‰∏™Canvas
  * getHolder-->SurfaceHolder
- * Holder-->Canvas +π‹¿ÌSurfaceViewµƒ…˙√¸÷‹∆⁄£®callback£© 
+ * Holder-->Canvas +ÁÆ°ÁêÜSurfaceViewÁöÑÁîüÂëΩÂë®ÊúüÔºàcallbackÔºâ 
  */
 
 public class LuckyPan extends SurfaceView implements Callback, Runnable {
-
 	
 	private SurfaceHolder mHolder;
 	private Canvas mCanvas;
@@ -32,12 +31,12 @@ public class LuckyPan extends SurfaceView implements Callback, Runnable {
 	private boolean isRunning;
 	
 	private String[] mStrs = new String[]{
-			"µ•∑¥œ‡ª˙", 
+			"ÂçïÂèçÁõ∏Êú∫", 
 			"IPAD", 
-			"πßœ≤∑¢≤∆", 
+			"ÊÅ≠ÂñúÂèëË¥¢", 
 			"IPHONE", 
-			"∑˛◊∞“ªÃ◊", 
-			"πßœ≤∑¢≤∆"};
+			"ÊúçË£Ö‰∏ÄÂ•ó", 
+			"ÊÅ≠ÂñúÂèëË¥¢"};
 	private int[] mImgs = new int[]{
 			R.drawable.danfan, 
 			R.drawable.ipad, 
@@ -59,23 +58,23 @@ public class LuckyPan extends SurfaceView implements Callback, Runnable {
 	
 	private Bitmap[] mImgBitmap;
 	
-	//’˚∏ˆ≈ÃøÈµƒ∑∂Œß
+	//Êï¥‰∏™ÁõòÂùóÁöÑËåÉÂõ¥
 	private RectF mRange = new RectF();
-	//≈ÃøÈ÷±æ∂
+	//ÁõòÂùóÁõ¥ÂæÑ
 	private int mRadius;
-	//≈ÃøÈª≠± 
+	//ÁõòÂùóÁîªÁ¨î
 	private Paint mArcPaint;
 	private Paint mTextPaint;
 	
-	private double mSpeed = 0;//πˆ∂ØÀŸ∂»
+	private double mSpeed = 0;//ÊªöÂä®ÈÄüÂ∫¶
 	private volatile float mStartAngle = 0;
 	
-	private boolean isShouldEnd;	// «∑Òµ„ª˜µƒÕ£÷π
+	private boolean isShouldEnd;	//ÊòØÂê¶ÁÇπÂáªÁöÑÂÅúÊ≠¢
 	
-	private int mCenter;//÷––ƒŒª÷√
+	private int mCenter;//‰∏≠ÂøÉ‰ΩçÁΩÆ
 	private int mPadding;
 	
-	//±≥æ∞Õº
+	//ËÉåÊôØÂõæ
 	private Bitmap mBgBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bg2);
 	
 	private float mTextSize = TypedValue.applyDimension(
@@ -93,7 +92,7 @@ public class LuckyPan extends SurfaceView implements Callback, Runnable {
 		mHolder.addCallback(this);
 		setFocusable(true);
 		setFocusableInTouchMode(true);
-		setKeepScreenOn(true);//≥£¡¡
+		setKeepScreenOn(true);//Â∏∏‰∫Æ
 	}
 	
 	@Override
@@ -168,14 +167,14 @@ public class LuckyPan extends SurfaceView implements Callback, Runnable {
 		float from = 270 -(index+1)*angle;
 		float end = from + angle;
 		
-		//…Ë÷√Õ£œ¬¿¥–Ë“™–˝◊™µƒæ‡¿Î
+		//ËÆæÁΩÆÂÅú‰∏ãÊù•ÈúÄË¶ÅÊóãËΩ¨ÁöÑË∑ùÁ¶ª
 		float targetFrom = 4*360 + from;
 		float targetEnd = targetFrom + angle;
 		
 		/*
 		 * v1--->0
-		 * (v1 = 0)*£®v1 +1)/2 = targetFrom
-		 * «Ûµ√v1=(-1 + Math.sqr(1+8*targetFrom£©)/2
+		 * (v1 = 0)*Ôºàv1 +1)/2 = targetFrom
+		 * Ê±ÇÂæóv1=(-1 + Math.sqr(1+8*targetFromÔºâ)/2
 		 */
 
 		float v1 = (float) ((-1 + Math.sqrt(1+8*targetFrom))/2);
@@ -238,7 +237,7 @@ public class LuckyPan extends SurfaceView implements Callback, Runnable {
 		}
 		mStartAngle += mSpeed;
 		
-		if (isShouldEnd)//Õ£÷π
+		if (isShouldEnd)//ÂÅúÊ≠¢
 		{
 			mSpeed -= 1;
 			if (mSpeed <= 0)

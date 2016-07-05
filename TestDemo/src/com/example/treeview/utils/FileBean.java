@@ -11,7 +11,6 @@ public class FileBean {
 	private String desc;
 	
 	
-	
 	public FileBean(int id, int pid, String label) {
 		super();
 		this.id = id;

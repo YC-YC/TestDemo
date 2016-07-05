@@ -2,6 +2,7 @@ package com.example.treeview.utils;
 
 public class OrgBean {
 
+	
 	@TreeNodeId
 	private int _id;
 	@TreeNodePid

@@ -11,10 +11,9 @@ import android.widget.TextView;
 public class SeekBarActivity extends Activity implements OnSeekBarChangeListener{
 
 	/*
-	 * SeekBar¼Ì³ĞProgressBar
-	 * ºÜ¶à·½·¨ÓëProgressBarÒ»Ñù£¬ĞèÒªÊµÏÖOnSeekBarChangeListener
+	 * SeekBarç»§æ‰¿ProgressBar
+	 * å¾ˆå¤šæ–¹æ³•ä¸ProgressBarä¸€æ ·ï¼Œéœ€è¦å®ç°OnSeekBarChangeListener
 	 */
-	
 	private SeekBar mSeekBar = null;
 	private TextView mTextView = null;
 	
@@ -35,22 +34,22 @@ public class SeekBarActivity extends Activity implements OnSeekBarChangeListener
 		
 	}
 
-	//ÊıÖµ¸Ä±ä
+	//æ•°å€¼æ”¹å˜
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
 		// TODO Auto-generated method stub
-		mTextView.setText("µ±Ç°ÖµÎª£º" + progress);
+		mTextView.setText("å½“å‰å€¼ä¸ºï¼š" + progress);
 	}
 
-	//¿ªÊ¼ÍÏ¶¯
+	//å¼€å§‹æ‹–åŠ¨
 	@Override
 	public void onStartTrackingTouch(SeekBar seekBar) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	//Í£Ö¹ÍÏ¶¯
+	//åœæ­¢æ‹–åŠ¨
 	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
 		// TODO Auto-generated method stub

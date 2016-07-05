@@ -8,9 +8,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
-//¶¯Ì¬¼ÓÔØ
+//åŠ¨æ€åŠ è½½
 //public class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
-//³£×¤
+//å¸¸é©»
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
 	private List<Fragment> mFragments;
@@ -34,12 +34,11 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 	}
 	
 	/*
-	 * Ìí¼Ó±êÌâ(non-Javadoc)
+	 * æ·»åŠ æ ‡é¢˜(non-Javadoc)
 	 * @see android.support.v4.view.PagerAdapter#getPageTitle(int)
 	 */
 	@Override
 	public CharSequence getPageTitle(int position) {
-		// TODO Auto-generated method stub
 		return mTitle.get(position);
 	}
 

@@ -13,7 +13,6 @@ import com.example.testdemo.second.toast.ToastActivity;
 public class OptionMenuActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_option);
 	}
@@ -22,17 +21,17 @@ public class OptionMenuActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		/*
-		 * ÅäÖÃÎÄ¼şÌí¼Ó·½·¨
+		 * é…ç½®æ–‡ä»¶æ·»åŠ æ–¹æ³•
 		 */
 //		MenuInflater inflater = getMenuInflater();
 //		inflater.inflate(R.menu.main, menu);
 		/*
-		 * ¶¯Ì¬¼ÓÔØ
+		 * åŠ¨æ€åŠ è½½
 		 */
-		menu.add(0, 100, 0, "²Ëµ¥Ò»");
-		menu.add(0, 101, 1, "²Ëµ¥¶ş");
-		menu.add(1, 102, 2, "²Ëµ¥Èı");
-		menu.add(1, 102, 3, "²Ëµ¥ËÄ");
+		menu.add(0, 100, 0, "èœå•ä¸€");
+		menu.add(0, 101, 1, "èœå•äºŒ");
+		menu.add(1, 102, 2, "èœå•ä¸‰");
+		menu.add(1, 102, 3, "èœå•å››");
 		return super.onCreateOptionsMenu(menu);
 	}
 	

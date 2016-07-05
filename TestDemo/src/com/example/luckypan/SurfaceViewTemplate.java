@@ -8,14 +8,13 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
 /*
- * SurfaceViewÊÇÔÚÒ»¸ö×ÓÏß³ÌÖĞ¶Ô×Ô¼º½øĞĞ»æÖÆ£¬ÓÅÊÆÊÇ±ÜÃâÔì³ÉUIÏß³ÌµÄ×èÈû
- * SurfaceView°üº¬Ò»¸ö×¨ÃÅÓÃÓÚ»æÖÆµÄSurface£¬SurfaceÖĞº¬ÓĞÒ»¸öCanvas
+ * SurfaceViewæ˜¯åœ¨ä¸€ä¸ªå­çº¿ç¨‹ä¸­å¯¹è‡ªå·±è¿›è¡Œç»˜åˆ¶ï¼Œä¼˜åŠ¿æ˜¯é¿å…é€ æˆUIçº¿ç¨‹çš„é˜»å¡
+ * SurfaceViewåŒ…å«ä¸€ä¸ªä¸“é—¨ç”¨äºç»˜åˆ¶çš„Surfaceï¼ŒSurfaceä¸­å«æœ‰ä¸€ä¸ªCanvas
  * getHolder-->SurfaceHolder
- * Holder-->Canvas +¹ÜÀíSurfaceViewµÄÉúÃüÖÜÆÚ£¨callback£© 
+ * Holder-->Canvas +ç®¡ç†SurfaceViewçš„ç”Ÿå‘½å‘¨æœŸï¼ˆcallbackï¼‰ 
  */
 
 public class SurfaceViewTemplate extends SurfaceView implements Callback, Runnable {
-
 	
 	private SurfaceHolder mHolder;
 	private Canvas mCanvas;
@@ -32,7 +31,7 @@ public class SurfaceViewTemplate extends SurfaceView implements Callback, Runnab
 		mHolder.addCallback(this);
 		setFocusable(true);
 		setFocusableInTouchMode(true);
-		setKeepScreenOn(true);//³£ÁÁ
+		setKeepScreenOn(true);//å¸¸äº®
 	}
 
 	@Override

@@ -23,7 +23,7 @@ import android.widget.Button;
 
 /**
  * @author YC
- * @time 2016-3-4 ÏÂÎç12:17:49
+ * @time 2016-3-4 ä¸‹åˆ12:17:49
  */
 public class DictionaryActivity extends Activity implements OnClickListener, TextWatcher {
 
@@ -46,9 +46,6 @@ public class DictionaryActivity extends Activity implements OnClickListener, Tex
 		mActvWord.addTextChangedListener(this);
 	}
 
-	/**
-	 * @return
-	 */
 	private SQLiteDatabase openDatabase() {
 		String databaseFileName = DATABASE_PATH + File.separator
 				+ DATABASE_FILENAME;
@@ -60,7 +57,7 @@ public class DictionaryActivity extends Activity implements OnClickListener, Tex
 				LOG("mkdir = " + DATABASE_PATH);
 				dir.mkdir();
 			}
-			// sdcard/dictionaryÄ¿Â¼ÏÂÃ»ÓÐÊ±£¬½«rawÉÏÂ¼ÏÂÎÄ¼þ¿½±´¹ýÈ¥
+			// sdcard/dictionaryç›®å½•ä¸‹æ²¡æœ‰æ—¶ï¼Œå°†rawä¸Šå½•ä¸‹æ–‡ä»¶æ‹·è´è¿‡åŽ»
 			if (!(new File(databaseFileName)).exists()) {
 				LOG("copyFile = ");
 				InputStream inputStream = getResources().openRawResource(
@@ -87,13 +84,13 @@ public class DictionaryActivity extends Activity implements OnClickListener, Tex
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count,
 			int after) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		
 	}
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		
 	}
 
@@ -124,14 +121,14 @@ public class DictionaryActivity extends Activity implements OnClickListener, Tex
 		String sql = "select chinese from t_words where english=?";
 		Cursor cursor = mDatabase.rawQuery(sql, 
 				new String[]{mActvWord.getText().toString()});
-		String result = "Î´²éµ½½á¹û";
+		String result = "æœªæŸ¥åˆ°ç»“æžœ";
 		if (cursor.getCount() > 0)
 		{
 			cursor.moveToFirst();
 			result = cursor.getString(cursor.getColumnIndex("chinese"));
 		}
-		new AlertDialog.Builder(this).setTitle("²éÑ¯½á¹û").setMessage(result)
-				.setPositiveButton("¹Ø±Õ", null).show();
+		new AlertDialog.Builder(this).setTitle("æŸ¥è¯¢ç»“æžœ").setMessage(result)
+				.setPositiveButton("å…³é—­", null).show();
 	}
 	
 	

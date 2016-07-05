@@ -21,11 +21,11 @@ import com.example.testdemo.R;
 
 /**
  *@Author Administrator
- *@Time 2016-2-29 ÉÏÎç12:07:09
+ *@Time 2016-2-29 ä¸Šåˆ12:07:09
  */
 public class FloatService extends Service {
 
-	LinearLayout mLayout;	//Ğü¸¡´°¿Ú²¼¾Ö
+	LinearLayout mLayout;	//æ‚¬æµ®çª—å£å¸ƒå±€
 	
 	WindowManager.LayoutParams mParams;
 	WindowManager mWManager;
@@ -34,7 +34,6 @@ public class FloatService extends Service {
 	
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -50,32 +49,32 @@ public class FloatService extends Service {
 		mWManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
 	
 //		mParams.type = LayoutParams.TYPE_PHONE;
-		mParams.type = LayoutParams.TYPE_TOAST;	//Ìí¼ÓÕâ¸öÀàĞÍ²»ĞèÒª´ò¿ªÏµÍ³Ğü¸¡È¨ÏŞ
+		mParams.type = LayoutParams.TYPE_TOAST;	//æ·»åŠ è¿™ä¸ªç±»å‹ä¸éœ€è¦æ‰“å¼€ç³»ç»Ÿæ‚¬æµ®æƒé™
 		mParams.format = PixelFormat.RGBA_8888;
-		//ÉèÖÃ¸¡¶¯´°¿Ú²»¿É¾Û½¹£¨ÊµÏÖ²Ù×÷³ı¸¡¶¯´°¿ÚÍâµÄÆäËû¿É¼û´°¿ÚµÄ²Ù×÷£©  
+		//è®¾ç½®æµ®åŠ¨çª—å£ä¸å¯èšç„¦ï¼ˆå®ç°æ“ä½œé™¤æµ®åŠ¨çª—å£å¤–çš„å…¶ä»–å¯è§çª—å£çš„æ“ä½œï¼‰  
 		mParams.flags = LayoutParams.FLAG_NOT_FOCUSABLE;
-		//µ÷ÕûĞü¸¡´°ÏÔÊ¾µÄÍ£¿¿Î»ÖÃÎª×ó²àÖÃ¶¥  
+		//è°ƒæ•´æ‚¬æµ®çª—æ˜¾ç¤ºçš„åœé ä½ç½®ä¸ºå·¦ä¾§ç½®é¡¶  
 		mParams.gravity = Gravity.LEFT | Gravity.TOP; 
 //		mParams.gravity = Gravity.CENTER; 
 		
-		// ÒÔÆÁÄ»×óÉÏ½ÇÎªÔ­µã£¬ÉèÖÃx¡¢y³õÊ¼Öµ£¬Ïà¶ÔÓÚgravity  
+		// ä»¥å±å¹•å·¦ä¸Šè§’ä¸ºåŸç‚¹ï¼Œè®¾ç½®xã€yåˆå§‹å€¼ï¼Œç›¸å¯¹äºgravity  
 		mParams.x = 0;  
 		mParams.y = 0;  
   
-        //ÉèÖÃĞü¸¡´°¿Ú³¤¿íÊı¾İ    
+        //è®¾ç½®æ‚¬æµ®çª—å£é•¿å®½æ•°æ®    
 		mParams.width = WindowManager.LayoutParams.WRAP_CONTENT;  
 		mParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 		
         
 		 LayoutInflater inflater = LayoutInflater.from(getApplication());  
-	        //»ñÈ¡¸¡¶¯´°¿ÚÊÓÍ¼ËùÔÚ²¼¾Ö  
+	        //è·å–æµ®åŠ¨çª—å£è§†å›¾æ‰€åœ¨å¸ƒå±€  
 	        mLayout = (LinearLayout) inflater.inflate(R.layout.float_win, null);  
 	        	        
 	        LOG("mLayout.getWidth()--->" + mLayout.getWidth());  
 	        LOG("mLayout.getHeight()--->" + mLayout.getHeight());  
 	       
 	        
-	        //Ìí¼ÓmFloatLayout  
+	        //æ·»åŠ mFloatLayout  
 	        mWManager.addView(mLayout, mParams);  
 	        
 	        mLayout.measure(
@@ -83,7 +82,7 @@ public class FloatService extends Service {
 	        		View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
 	        
 	        
-	        //¸¡¶¯´°¿Ú°´Å¥  
+	        //æµ®åŠ¨çª—å£æŒ‰é’®  
 	        mBtnFloat = (Button)mLayout.findViewById(R.id.btn_float); 
 	        
 	        LOG("Width/2--->" + mBtnFloat.getMeasuredWidth()/2);  
@@ -104,13 +103,13 @@ public class FloatService extends Service {
 					case MotionEvent.ACTION_MOVE:
 						LOG("event[X,Y] = "+event.getRawX()+"," + event.getRawY());
 						LOG("event[X,Y] = "+mBtnFloat.getMeasuredWidth()+"," + mBtnFloat.getMeasuredWidth());
-						//getRawXÊÇ´¥ÃşÎ»ÖÃÏà¶ÔÓÚÆÁÄ»µÄ×ø±ê£¬getXÊÇÏà¶ÔÓÚ°´Å¥µÄ×ø±ê  
+						//getRawXæ˜¯è§¦æ‘¸ä½ç½®ç›¸å¯¹äºå±å¹•çš„åæ ‡ï¼ŒgetXæ˜¯ç›¸å¯¹äºæŒ‰é’®çš„åæ ‡  
 						mParams.x = (int) event.getRawX() - mBtnFloat.getMeasuredWidth()/2;  
-						//¼õ25Îª×´Ì¬À¸µÄ¸ß¶È  
+						//å‡25ä¸ºçŠ¶æ€æ çš„é«˜åº¦  
 						mParams.y = (int) event.getRawY() - mBtnFloat.getMeasuredHeight()/2 - 25;  
-						//Ë¢ĞÂ  
+						//åˆ·æ–°  
 						mWManager.updateViewLayout(mLayout, mParams);  
-						return true;  //´Ë´¦±ØĞë·µ»Øfalse£¬·ñÔòOnClickListener»ñÈ¡²»µ½¼àÌı
+						return true;  //æ­¤å¤„å¿…é¡»è¿”å›falseï¼Œå¦åˆ™OnClickListenerè·å–ä¸åˆ°ç›‘å¬
 					}
 					return false;
 				}

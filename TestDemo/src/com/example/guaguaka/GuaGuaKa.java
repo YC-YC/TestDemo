@@ -24,9 +24,9 @@ public class GuaGuaKa extends View {
 	private int mTextSize = 80;
 	
 	private Paint mOutterPaint;
-	private Path mPath;	//ÊÖÖ¸Â·¾¶
+	private Path mPath;	//æ‰‹æŒ‡è·¯å¾„
 	private Canvas mCanvas;
-	private Bitmap mBitmap;	//µ×Í¼
+	private Bitmap mBitmap;	//åº•å›¾
 	private Bitmap mOutterBitmap;
 	
 	private int mLastX;
@@ -36,10 +36,9 @@ public class GuaGuaKa extends View {
 	
 	private String mText;
 	private Paint mBackPaint;
-	private Rect mTextBound = new Rect();//¼ÇÂ¼¹Î½±ÎÄ×ÖµÄ¿í¸ß
+	private Rect mTextBound = new Rect();//è®°å½•åˆ®å¥–æ–‡å­—çš„å®½é«˜
 	
 	private volatile boolean mComplete = false;
-	
 	
 	public GuaGuaKa(Context context) {
 		this(context, null);
@@ -75,24 +74,24 @@ public class GuaGuaKa extends View {
 		mBitmap = Bitmap.createBitmap(width, height, Config.ARGB_8888);
 		mCanvas = new Canvas(mBitmap);
 		
-		//ÉèÖÃ»­±ÊÊôĞÔ
-		mOutterPaint.setColor(Color.parseColor("#c0c0c0"));//ÑÕÉ«
-		mOutterPaint.setAntiAlias(true);//¿¹¾â³İ
+		//è®¾ç½®ç”»ç¬”å±æ€§
+		mOutterPaint.setColor(Color.parseColor("#c0c0c0"));//é¢œè‰²
+		mOutterPaint.setAntiAlias(true);//æŠ—é”¯é½¿
 		mOutterPaint.setDither(true);
-		mOutterPaint.setStrokeJoin(Paint.Join.ROUND);//Ô²½Ç
+		mOutterPaint.setStrokeJoin(Paint.Join.ROUND);//åœ†è§’
 		mOutterPaint.setStrokeCap(Paint.Cap.ROUND);
 		mOutterPaint.setStyle(Style.FILL);
 		mOutterPaint.setStrokeWidth(20);
 		
-		//ÉèÖÃ»ñ½±ĞÅÏ¢µÄ»­±ÊÊôĞÔ
+		//è®¾ç½®è·å¥–ä¿¡æ¯çš„ç”»ç¬”å±æ€§
 		mBackPaint.setColor(Color.BLACK);
 		mBackPaint.setStyle(Style.FILL);
 		mBackPaint.setTextSize(mTextSize);
-		//»ñµÃÎÄ±¾µÄ¿íºÍ¸ß
+		//è·å¾—æ–‡æœ¬çš„å®½å’Œé«˜
 		mBackPaint.getTextBounds(mText, 0, mText.length(), mTextBound);
 		
-//		mCanvas.drawColor(Color.parseColor("#c0c0c0"));//»ÒÉ«Í¼²ã
-		mCanvas.drawRoundRect(new RectF(0, 0, width, height), 30, 30, mOutterPaint);//Ô²½Ç
+//		mCanvas.drawColor(Color.parseColor("#c0c0c0"));//ç°è‰²å›¾å±‚
+		mCanvas.drawRoundRect(new RectF(0, 0, width, height), 30, 30, mOutterPaint);//åœ†è§’
 		mCanvas.drawBitmap(mOutterBitmap, null, 
 				new Rect(0, 0, getWidth(), getHeight()), null);
 	}
@@ -126,7 +125,7 @@ public class GuaGuaKa extends View {
 			new Thread(mRunnable).start();
 			break;
 		}
-		invalidate();//ÓĞ×÷ÓÃ
+		invalidate();//æœ‰ä½œç”¨
 		return true;
 	}
 	
@@ -141,7 +140,7 @@ public class GuaGuaKa extends View {
 			float totalArea = w*h;
 			
 			Bitmap bitmap = mBitmap;
-			int[] mPixels = new int[w*h];	//ÏñËØµã
+			int[] mPixels = new int[w*h];	//åƒç´ ç‚¹
 			mBitmap.getPixels(mPixels, 0, w, 0, 0, w, h);
 			
 			for (int i = 0; i < w; i++)
@@ -161,7 +160,7 @@ public class GuaGuaKa extends View {
 				int percent = (int) (wipeArea*100/totalArea);
 				if (percent > 60)
 				{
-					//Çå³ıµôÍ¼²ãÇøÓò
+					//æ¸…é™¤æ‰å›¾å±‚åŒºåŸŸ
 					mComplete = true;
 					postInvalidate();
 				}
@@ -171,7 +170,7 @@ public class GuaGuaKa extends View {
 
 	
 	
-	//»æÖÆ
+	//ç»˜åˆ¶
 	@Override
 	protected void onDraw(Canvas canvas) {
 		

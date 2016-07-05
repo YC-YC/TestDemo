@@ -14,7 +14,7 @@ import com.example.testdemo.R;
 import com.example.testdemo.second.base.MyFragment.FragmentCallBack;
 
 /*
- * ÊµÏÖFragmentÌá¹©µÄ½Ó¿ÚÊµÏÖÍ¨Ñ¶
+ * å®ç°Fragmentæä¾›çš„æ¥å£å®ç°é€šè®¯
  */
 public class DynamicFragmentActivity extends Activity implements FragmentCallBack{
 	private static final String TAG = "DynamicFragmentActivity";
@@ -22,7 +22,6 @@ public class DynamicFragmentActivity extends Activity implements FragmentCallBac
 	private TextView tv;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dynamic_fragment);
 		tv = (TextView) findViewById(R.id.dynamic_tv);
@@ -35,14 +34,14 @@ public class DynamicFragmentActivity extends Activity implements FragmentCallBac
 	
 		Fragment fragment = new MyFragment();
 		/*
-		 * Ìí¼Ófragment
+		 * æ·»åŠ fragment
 		 */
 		beginTransaction.add(R.id.dynamic_layout, fragment);
-		//·µ»Øµ½ÉÏÒ»¸öFragment
+		//è¿”å›åˆ°ä¸Šä¸€ä¸ªFragment
 		beginTransaction.addToBackStack(null);
 		beginTransaction.commit();
 		
-		//»ñÈ¡°ó¶¨µÄFragment
+		//è·å–ç»‘å®šçš„Fragment
 //		Log.i(TAG, fragmentManager.findFragmentById(id).);
 	}
 	
@@ -52,18 +51,18 @@ public class DynamicFragmentActivity extends Activity implements FragmentCallBac
 		FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
 	
 		Bundle bundle = new Bundle();
-		bundle.putString("name", "ActivityÏòFragment´«µİÊı¾İ");
+		bundle.putString("name", "Activityå‘Fragmentä¼ é€’æ•°æ®");
 		Fragment fragment = new MyFragment();
-		//Ìí¼ÓÊı¾İ
+		//æ·»åŠ æ•°æ®
 		fragment.setArguments(bundle);
 		beginTransaction.add(R.id.dynamic_layout, fragment,"MyFragment");
-		//·µ»Øµ½ÉÏÒ»¸öFragment
+		//è¿”å›åˆ°ä¸Šä¸€ä¸ªFragment
 		beginTransaction.addToBackStack(null);
 		beginTransaction.commit();
 	}
 
 	@Override
 	public void callback(String code) {
-		tv.setText("Activity½ÓÊÕµ½FragmentµÄÊı¾İÎª£º" + code);
+		tv.setText("Activityæ¥æ”¶åˆ°Fragmentçš„æ•°æ®ä¸ºï¼š" + code);
 	}
 }

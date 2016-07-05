@@ -35,7 +35,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		setContentView(R.layout.activity_main);
 		CrashReport.initCrashReport(this, "900021446", false);
 		initView();
-		
 		initEvent();
 	}
 	private void initEvent() {
@@ -45,18 +44,18 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		mTab04.setOnClickListener(this);
 		
 		/*
-		 * ÉèÖÃPagerTabStripÊôĞÔ
+		 * è®¾ç½®PagerTabStripå±æ€§
 		 */
 		mTabStrip.setBackgroundColor(Color.BLACK);
 		mTabStrip.setTextColor(Color.WHITE);
 		mTabStrip.setDrawFullUnderline(false);
-		//ÉèÖÃÏÂÏßÑÕÉ«
+		//è®¾ç½®ä¸‹çº¿é¢œè‰²
 		mTabStrip.setTabIndicatorColor(Color.GREEN);
 	}
 	private void initView() {
 		mViewPager = (ViewPager) findViewById(R.id.viewpager);
 		/*
-		 * Ê¹ÓÃPagerTabStripÉèÖÃ±êÌâÍ·
+		 * ä½¿ç”¨PagerTabStripè®¾ç½®æ ‡é¢˜å¤´
 		 */
 		mTabStrip = (PagerTabStrip) findViewById(R.id.tab);
 		
@@ -71,10 +70,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		mImg04 = (ImageView) findViewById(R.id.img_04);
 		
 		mTitle = new ArrayList<String>();
-		mTitle.add("µÚÒ»Ò³");
-		mTitle.add("µÚ¶şÒ³");
-		mTitle.add("µÚÈıÒ³");
-		mTitle.add("µÚËÄÒ³");
+		mTitle.add("ç¬¬ä¸€é¡µ");
+		mTitle.add("ç¬¬äºŒé¡µ");
+		mTitle.add("ç¬¬ä¸‰é¡µ");
+		mTitle.add("ç¬¬å››é¡µ");
 		
 		mFragments = new ArrayList<Fragment>();
 		mFragments.add(new FirstFragment());

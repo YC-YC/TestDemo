@@ -7,10 +7,10 @@ import android.view.Menu;
 import com.example.testdemo.R;
 
 /*
- * 1、不关心Item是否显示在正确的地方--》LayoutManager
- * 2、不关心Item如何分隔--》ItemDecoration
- * 3、不关心Item增加与删除的动画--》ItemAnimator
- * 4、仅仅关注如何回收与利用View
+ * 1銆佷笉鍏冲績Item鏄惁鏄剧ず鍦ㄦ纭殑鍦版柟--銆婰ayoutManager
+ * 2銆佷笉鍏冲績Item濡備綍鍒嗛殧--銆婭temDecoration
+ * 3銆佷笉鍏冲績Item澧炲姞涓庡垹闄ょ殑鍔ㄧ敾--銆婭temAnimator
+ * 4銆佷粎浠呭叧娉ㄥ浣曞洖鏀朵笌鍒╃敤View
  */
 public class RecyclerActivity extends Activity {
 
@@ -22,7 +22,6 @@ public class RecyclerActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}

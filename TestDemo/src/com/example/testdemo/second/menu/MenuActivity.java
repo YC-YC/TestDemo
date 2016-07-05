@@ -20,6 +20,7 @@ public class MenuActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.menu_main);
 		initView();
 	}
+	
 	private void initView() {
 		bt_menu1 = (Button) findViewById(R.id.bt_menu1);
 		bt_menu1.setOnClickListener(this);

@@ -21,7 +21,7 @@ public class MyFragment extends Fragment {
 	private Button bt2;
 	
 	/*
-	 * FragmentÏòActivity´«µİÊı¾İµÄ·½Ê½
+	 * Fragmentå‘Activityä¼ é€’æ•°æ®çš„æ–¹å¼
 	 */
 	public interface FragmentCallBack{
 		public void callback(String code);
@@ -29,20 +29,19 @@ public class MyFragment extends Fragment {
 	
 	private FragmentCallBack callBack;
 
-	//µ±Fragment±»Ìí¼Óµ½ActivityÊ±µ÷ÓÃ
+	//å½“Fragmentè¢«æ·»åŠ åˆ°Activityæ—¶è°ƒç”¨
 		@Override
 		public void onAttach(Activity activity) {
-			// TODO Auto-generated method stub
 			super.onAttach(activity);
 			callBack = (FragmentCallBack) activity;
 		}
 	
-	//Ã¿´Î´´½¨¶¼»áµ÷ÓÃ
+	//æ¯æ¬¡åˆ›å»ºéƒ½ä¼šè°ƒç”¨
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		/*
-		 * »ñÈ¡ËùÔÚµÄActivity
+		 * è·å–æ‰€åœ¨çš„Activity
 		 */
 		Log.i(TAG, getActivity().toString());
 		View view = inflater.inflate(R.layout.fragment, container, false);
@@ -53,11 +52,11 @@ public class MyFragment extends Fragment {
 			public void onClick(View v) {
 				if (getArguments() != null)
 				{
-					tv.setText("FragmentÖĞ»ñÈ¡µ½µÄÊı¾İÎª£º" + getArguments().get("name"));
+					tv.setText("Fragmentä¸­è·å–åˆ°çš„æ•°æ®ä¸ºï¼š" + getArguments().get("name"));
 				}
 				else
 				{
-					tv.setText("Activity²¢Ã»ÓĞÏòFragment´«µİÊı¾İ");
+					tv.setText("Activityå¹¶æ²¡æœ‰å‘Fragmentä¼ é€’æ•°æ®");
 				}
 			}
 		});
@@ -65,7 +64,7 @@ public class MyFragment extends Fragment {
 		bt2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				callBack.callback("FragmentÏòActivity´«µİÊı¾İ");
+				callBack.callback("Fragmentå‘Activityä¼ é€’æ•°æ®");
 			}
 		});
 		return view;
@@ -73,14 +72,14 @@ public class MyFragment extends Fragment {
 
 	
 
-	//´´½¨FragmentÊ±»á±»µ÷ÓÃ
+	//åˆ›å»ºFragmentæ—¶ä¼šè¢«è°ƒç”¨
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
 	
-	//Fragment´´½¨Íê³ÉÊ±µ÷ÓÃ
+	//Fragmentåˆ›å»ºå®Œæˆæ—¶è°ƒç”¨
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -88,42 +87,42 @@ public class MyFragment extends Fragment {
 	}
 	
 	
-	//Æô¶¯Fragment
+	//å¯åŠ¨Fragment
 	@Override
 	public void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
 	}
 	
-	//»Ö¸´FragmentÊ±±»µ÷ÓÃ£¬Ã¿´Îµ÷ÓÃonStartÊ±»áµ÷ÓÃ
+	//æ¢å¤Fragmentæ—¶è¢«è°ƒç”¨ï¼Œæ¯æ¬¡è°ƒç”¨onStartæ—¶ä¼šè°ƒç”¨
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 	}
 	
-	//Í£Ö¹fragment
+	//åœæ­¢fragment
 	@Override
 	public void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
 	}
 	
-	//Ïú»ÙFragmentËù°üº¬µÄView×é¼şÊ±µ÷ÓÃ
+	//é”€æ¯Fragmentæ‰€åŒ…å«çš„Viewç»„ä»¶æ—¶è°ƒç”¨
 	@Override
 	public void onDestroyView() {
 		// TODO Auto-generated method stub
 		super.onDestroyView();
 	}
 	
-	//Ïú»ÙFragmentÊ±»á±»µ÷ÓÃ
+	//é”€æ¯Fragmentæ—¶ä¼šè¢«è°ƒç”¨
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
 	
-	//Fragment´ÓActivityÊ±µ÷ÓÃ 
+	//Fragmentä»Activityæ—¶è°ƒç”¨ 
 	@Override
 	public void onDetach() {
 		// TODO Auto-generated method stub

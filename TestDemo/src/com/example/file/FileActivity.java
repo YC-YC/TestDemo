@@ -17,8 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 /*
- * openFileOutput()ÓÃÓÚ°ÑÊı¾İÊä³öµ½ÎÄ¼şÖĞ
- * ´´½¨µÄÎÄ¼ş±£´æµ½/data/data/<package>/filesÄ¿Â¼
+ * openFileOutput()ç”¨äºæŠŠæ•°æ®è¾“å‡ºåˆ°æ–‡ä»¶ä¸­
+ * åˆ›å»ºçš„æ–‡ä»¶ä¿å­˜åˆ°/data/data/<package>/filesç›®å½•
  */
 public class FileActivity extends Activity {
 	
@@ -28,7 +28,6 @@ public class FileActivity extends Activity {
 	private EditText et_fileShow;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.file);
@@ -44,11 +43,11 @@ public class FileActivity extends Activity {
 		}
 		file.delete();*/
 		
-//		File file = this.getFilesDir();//µ±Ç°Ó¦ÓÃÄ¿Â¼
-//		File dir = this.getCacheDir();//»º´æÎÄ¼şÄ¿Â¼
-//		File dir = this.getDir("imooc", MODE_PRIVATE);//´´½¨Ò»¸öĞÂÄ¿Â¼
+//		File file = this.getFilesDir();//å½“å‰åº”ç”¨ç›®å½•
+//		File dir = this.getCacheDir();//ç¼“å­˜æ–‡ä»¶ç›®å½•
+//		File dir = this.getDir("imooc", MODE_PRIVATE);//åˆ›å»ºä¸€ä¸ªæ–°ç›®å½•
 
-//		this.getExternalCacheDir();//ÍâÖÃSD¿¨µÄcacheÄ¿Â¼
+//		this.getExternalCacheDir();//å¤–ç½®SDå¡çš„cacheç›®å½•
 		
 	}
 	

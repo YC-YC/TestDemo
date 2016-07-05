@@ -20,15 +20,15 @@ import com.example.testdemo.R;
 
 
 /*
- * Ò»¡¢×Ô¶¨ÒåViewGroup
- * 	1¡¢×Ô¶¨ÒåÊôĞÔ
- * 		a¡¢attr.xml
- *  	b¡¢ÔÚ²¼¾ÖÖĞ»ñÈ¡
- *  	c¡¢ÔÚ×Ô¶¨Òå¿Ø¼şÖĞ½øĞĞ¶ÁÈ¡
- *  2¡¢onMeasure:²âÁ¿Öµ
- *  3¡¢onLayout:¾ö¶¨ViewÏÔÊ¾Î»ÖÃ
- *  4¡¢ÉèÖÃÖ÷°´Å¥µÄĞı×ª¶¯»­
- *  5¡¢ÊµÏÖ×Ó²Ëµ¥µã»÷¶¯»­
+ * ä¸€ã€è‡ªå®šä¹‰ViewGroup
+ * 	1ã€è‡ªå®šä¹‰å±æ€§
+ * 		aã€attr.xml
+ *  	bã€åœ¨å¸ƒå±€ä¸­è·å–
+ *  	cã€åœ¨è‡ªå®šä¹‰æ§ä»¶ä¸­è¿›è¡Œè¯»å–
+ *  2ã€onMeasure:æµ‹é‡å€¼
+ *  3ã€onLayout:å†³å®šViewæ˜¾ç¤ºä½ç½®
+ *  4ã€è®¾ç½®ä¸»æŒ‰é’®çš„æ—‹è½¬åŠ¨ç”»
+ *  5ã€å®ç°å­èœå•ç‚¹å‡»åŠ¨ç”»
  */
 
 public class ArcMenu extends ViewGroup implements OnClickListener {
@@ -43,25 +43,24 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 	private Status mCurStatus = Status.CLOSE;
 	private int mRadius;
 	
-	private View mCButton;	//ÖĞ¼äÎ»ÖÃ°´¼ü
+	private View mCButton;	//ä¸­é—´ä½ç½®æŒ‰é”®
 	private OnMenuItemClickListener mClickListener;
 	
 	/*
-	 * Î»ÖÃ
+	 * ä½ç½®
 	 */
 	public enum Position{
 		LEFT_TOP, LEFT_BOTTON, RIGHT_TOP, RIGHT_BOTTON
 	}
 	
-	/*
-	 * ×´Ì¬
+	/* çŠ¶æ€
 	 */
 	public enum Status{
 		OPEN, CLOSE
 	}
 	
 	/*
-	 * ²Ëµ¥µã»÷»Øµ÷½Ó¿Ú
+	 * èœå•ç‚¹å‡»å›è°ƒæ¥å£
 	 */
 	public interface OnMenuItemClickListener{
 		void onClick(View view, int position);
@@ -85,9 +84,9 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 	}
 	public ArcMenu(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		//Ä¬ÈÏÖµ
+		//é»˜è®¤å€¼
 		mRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
-		//»ñÈ¡×Ô¶¨ÒåÊôĞÔ
+		//è·å–è‡ªå®šä¹‰å±æ€§
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, 
 				R.styleable.ArcMenu, 
 				defStyle, 
@@ -126,7 +125,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 		// TODO Auto-generated method stub
 		int count = getChildCount();
 		for (int i = 0; i < count; i++) {
-			//²âÁ¿×ÓView
+			//æµ‹é‡å­View
 			measureChild(getChildAt(i), widthMeasureSpec, heightMeasureSpec);
 		}
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -144,14 +143,14 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 	
 	
 	/*
-	 * ¶¨Î»Ö÷²Ëµ¥°´¼ü
+	 * å®šä½ä¸»èœå•æŒ‰é”®
 	 */
 	private void layoutCButton() {
 		mCButton = getChildAt(0);
 		mCButton.setOnClickListener(this);
 		
-		int l = 0;	//×ó
-		int t = 0;	//ÉÏ
+		int l = 0;	//å·¦
+		int t = 0;	//ä¸Š
 		
 		int width = mCButton.getMeasuredWidth();
 		int height = mCButton.getMeasuredHeight();
@@ -177,7 +176,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 		mCButton.layout(l, t, l+width, t+height);
 	}
 	/*
-	 * ¶¨Î»×Ó°´¼ü
+	 * å®šä½å­æŒ‰é”®
 	 */
 	private void layoutChild() {
 		int count = getChildCount();
@@ -193,12 +192,12 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 			int cWidth = child.getMeasuredWidth();
 			int cHeight = child.getMeasuredHeight();
 			
-			//×óÏÂ¡¢ÓÒÏÂ
+			//å·¦ä¸‹ã€å³ä¸‹
 			if (mPosition == Position.LEFT_BOTTON || mPosition == Position.RIGHT_BOTTON)
 			{
 				ct = getMeasuredHeight() - cHeight - ct;
 			}
-			//ÓÒÏÂ¡¢ÓÒÏÂ
+			//å³ä¸‹ã€å³ä¸‹
 			if (mPosition == Position.RIGHT_BOTTON || mPosition == Position.RIGHT_TOP)
 			{
 				cl = getMeasuredWidth() - cWidth - cl;
@@ -226,16 +225,16 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 
 
 	/*
-	 * ÇĞ»»²Ëµ¥
+	 * åˆ‡æ¢èœå•
 	 */
 	public void toggleMenu(int duration) {
-		//ÎªmenuÌí¼ÓÆ½ÒÆ¶¯»­
+		//ä¸ºmenuæ·»åŠ å¹³ç§»åŠ¨ç”»
 		
 		int count = getChildCount();
 		for (int i = 0; i < count - 1; i++) {
 			final View childView = getChildAt(i+1);
 			childView.setVisibility(View.VISIBLE);
-			//end 0£¬0
+			//end 0ï¼Œ0
 			//start
 			
 			int cl = (int) (mRadius*Math.sin(Math.PI/2/(count-2)*i));
@@ -243,12 +242,12 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 			
 			int xflag = 1;
 			int yflag = 1;
-			//×óÉÏ¡¢×óÏÂ
+			//å·¦ä¸Šã€å·¦ä¸‹
 			if (mPosition == Position.LEFT_BOTTON || mPosition == Position.LEFT_TOP)
 			{
 				xflag = -1;
 			}
-			//ÓÒÏÂ¡¢ÓÒÏÂ
+			//å³ä¸‹ã€å³ä¸‹
 			if (mPosition == Position.LEFT_TOP || mPosition == Position.RIGHT_TOP)
 			{
 				yflag = -1;
@@ -270,9 +269,9 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 			}
 			tranAnim.setFillAfter(true);
 			tranAnim.setDuration(duration);
-			tranAnim.setStartOffset((i*100)/count);//ÉèÖÃÏÈºóË³Ğò
+			tranAnim.setStartOffset((i*100)/count);//è®¾ç½®å…ˆåé¡ºåº
 			/*
-			 * ÉèÖÃ¶¯»­¼àÌıÊÂ¼ş£¬Íê³É¶¯»­½áÊøÊ±ÏÔÊ¾Òş²Ø
+			 * è®¾ç½®åŠ¨ç”»ç›‘å¬äº‹ä»¶ï¼Œå®ŒæˆåŠ¨ç”»ç»“æŸæ—¶æ˜¾ç¤ºéšè—
 			 */
 			tranAnim.setAnimationListener(new AnimationListener() {
 				
@@ -293,19 +292,19 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 				}
 			});
 		
-			//ÎªmenuÌí¼ÓĞı×ª¶¯»­
+			//ä¸ºmenuæ·»åŠ æ—‹è½¬åŠ¨ç”»
 			RotateAnimation rotateAnim = new RotateAnimation(0, 720,
 					Animation.RELATIVE_TO_SELF, 0.5f,
 					Animation.RELATIVE_TO_SELF, 0.5f);
 			rotateAnim.setFillAfter(true);
 			rotateAnim.setDuration(duration);
 			
-			animationSet.addAnimation(rotateAnim);//ÏÈĞı×ªÔÙÆ½ÒÆ
+			animationSet.addAnimation(rotateAnim);//å…ˆæ—‹è½¬å†å¹³ç§»
 			animationSet.addAnimation(tranAnim);
 			
 			childView.startAnimation(animationSet);
 			
-			//ÊµÏÖ×Ó²Ëµ¥µã»÷¶¯»­
+			//å®ç°å­èœå•ç‚¹å‡»åŠ¨ç”»
 			final int pos = i+1;
 			childView.setOnClickListener(new OnClickListener() {
 				
@@ -323,7 +322,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 		changeStatus();
 	}
 
-	//Ìí¼ÓmenuItemµÄµã»÷¶¯»­
+	//æ·»åŠ menuItemçš„ç‚¹å‡»åŠ¨ç”»
 	private void menuItemAnim(int position) {
 		for (int i = 0; i < getChildCount() - 1; i++) {
 			View childView = getChildAt(i+1);
@@ -341,7 +340,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 	}
 
 	/*
-	 * ±äĞ¡ºÍÍ¸Ã÷¶È½µµÍ
+	 * å˜å°å’Œé€æ˜åº¦é™ä½
 	 */
 	private Animation scaleSmallAnim(int duration) {
 		
@@ -359,7 +358,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 
 
 	/*
-	 * ±ä´óºÍÍ¸Ã÷¶È½µµÍ
+	 * å˜å¤§å’Œé€æ˜åº¦é™ä½
 	 */
 	private Animation scaleBigAnim(int duration) {
 		AnimationSet set = new AnimationSet(true);
@@ -377,7 +376,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 
 
 	/*
-	 * ÇĞ»»×´Ì¬
+	 * åˆ‡æ¢çŠ¶æ€
 	 */
 	private void changeStatus() {
 		mCurStatus = (mCurStatus == Status.CLOSE ? Status.OPEN:Status.CLOSE);
@@ -386,7 +385,7 @@ public class ArcMenu extends ViewGroup implements OnClickListener {
 
 
 	/*
-	 * Ğı×ªÖĞ¼ä°´¼ü
+	 * æ—‹è½¬ä¸­é—´æŒ‰é”®
 	 */
 	private void rotateCButton(View v, float start, float end, int duration) {
 		RotateAnimation anim = new RotateAnimation(start, end,

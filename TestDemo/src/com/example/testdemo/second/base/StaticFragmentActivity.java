@@ -16,21 +16,20 @@ public class StaticFragmentActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.static_fragment);
 		
 		/*
-		 * ¾²Ì¬¼ÓÔØ¿ÉÔÚActivityÖĞÕÒµ½²¿¼ş
+		 * é™æ€åŠ è½½å¯åœ¨Activityä¸­æ‰¾åˆ°éƒ¨ä»¶
 		 */
 		tv = (TextView) findViewById(R.id.fragment_tv);
-		tv.setText("FragmentÖĞµÄButton");
+		tv.setText("Fragmentä¸­çš„Button");
 		bt = (Button) findViewById(R.id.fragment_bt);
 		bt.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				tv.setText("ActivityÖĞ²Ù×÷FragmentÖĞµÄButton");
+				tv.setText("Activityä¸­æ“ä½œFragmentä¸­çš„Button");
 			}
 		});
 	}

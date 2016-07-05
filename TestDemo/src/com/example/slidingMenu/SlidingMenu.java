@@ -17,25 +17,24 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
 /*
- * 1¡¢onMeasure:¾ö¶¨ÄÚ²¿View(×ÓView)µÄ¿íºÍ¸ßÒÔ¼°×Ô¼ºµÄ¿íºÍ¸ß
- * 2¡¢onLayout:¾ö¶¨×ÓViewµÄÎ»ÖÃ
- * 3¡¢¸´Ğ´onTouchEventÊµÏÖ»¬¶¯ËÉ¿ªºó´¦Àí
- * 4¡¢×Ô¶¨Òåpadding
- * 5¡¢Ìí¼Ó°´¼üÇĞ»»
- * 6¡¢³éÌëÊ½²à»®·½Ê½Ò»£º·Â·ğ²Ëµ¥ÔÚÄÚÈİµ×ÏÂ
- * 	·½·¨£º¼ÆËãÆ«ÒÆÁ¿mMenuWidth~0
- * 	ÊôĞÔ¶¯»­£ºTraslationX
- * 	Ìİ¶ÈgetScroolX:mMenuWidth~0
- * 	µ÷ÓÃ¶¯»­µÄÊ±»ú£ºÔÚACTION_MOVEÖĞ²»ºÃ£¬ÔÚonScrollChangedÖĞ´¦Àí
- * 7¡¢³éÌëÊ½²à»®·½Ê½¶ş£º
- * a¡¢ÓÒ²àÄÚÈİÆ«ÒÆÁ¿£º1.0~0.7
+ * 1ã€onMeasure:å†³å®šå†…éƒ¨View(å­View)çš„å®½å’Œé«˜ä»¥åŠè‡ªå·±çš„å®½å’Œé«˜
+ * 2ã€onLayout:å†³å®šå­Viewçš„ä½ç½®
+ * 3ã€å¤å†™onTouchEventå®ç°æ»‘åŠ¨æ¾å¼€åå¤„ç†
+ * 4ã€è‡ªå®šä¹‰padding
+ * 5ã€æ·»åŠ æŒ‰é”®åˆ‡æ¢
+ * 6ã€æŠ½å±‰å¼ä¾§åˆ’æ–¹å¼ä¸€ï¼šä»¿ä½›èœå•åœ¨å†…å®¹åº•ä¸‹
+ * 	æ–¹æ³•ï¼šè®¡ç®—åç§»é‡mMenuWidth~0
+ * 	å±æ€§åŠ¨ç”»ï¼šTraslationX
+ * 	æ¢¯åº¦getScroolX:mMenuWidth~0
+ * 	è°ƒç”¨åŠ¨ç”»çš„æ—¶æœºï¼šåœ¨ACTION_MOVEä¸­ä¸å¥½ï¼Œåœ¨onScrollChangedä¸­å¤„ç†
+ * 7ã€æŠ½å±‰å¼ä¾§åˆ’æ–¹å¼äºŒï¼š
+ * aã€å³ä¾§å†…å®¹åç§»é‡ï¼š1.0~0.7
  * scale:1.0~0.0
- * Öµ: 0.7+£¨scale*0.3£©
- * b¡¢²Ëµ¥ÏÔÊ¾Ê±ÓĞËõ·Å¡¢Í¸Ã÷¶È±ä»¯0.7~1.0  0.6~1.0
- * Öµ£º1-0.3*scale		1.0 - 0.4*scale
+ * å€¼: 0.7+ï¼ˆscale*0.3ï¼‰
+ * bã€èœå•æ˜¾ç¤ºæ—¶æœ‰ç¼©æ”¾ã€é€æ˜åº¦å˜åŒ–0.7~1.0  0.6~1.0
+ * å€¼ï¼š1-0.3*scale		1.0 - 0.4*scale
  * 
  * 
- *
  * 
  * 
  */
@@ -46,16 +45,16 @@ public class SlidingMenu extends HorizontalScrollView {
 	private LinearLayout mWapper;
 	private ViewGroup mMenu;
 	private ViewGroup mContent;
-	private int mScreenWidth;	//ÆÁÄ»¿í¶È
-	private int mMenuRightPadding = 50;	//²Ëµ¥µ½ÓÒ±ßµÄ¾àÀëdp
+	private int mScreenWidth;	//å±å¹•å®½åº¦
+	private int mMenuRightPadding = 50;	//èœå•åˆ°å³è¾¹çš„è·ç¦»dp
 	
 	private boolean once = false;
-	private boolean inOpen = false;	//ÊÇ·ñ´ò¿ª²Ëµ¥
+	private boolean inOpen = false;	//æ˜¯å¦æ‰“å¼€èœå•
 	
-	private int mMenuWidth;	//²Ëµ¥µÄ¿í¶È
+	private int mMenuWidth;	//èœå•çš„å®½åº¦
 	
 	/*
-	 * ´úÂëÖĞÖ±½ÓNew»áµ÷ÓÃ´Ë·½·¨
+	 * ä»£ç ä¸­ç›´æ¥Newä¼šè°ƒç”¨æ­¤æ–¹æ³•
 	 */
 	public SlidingMenu(Context context) {
 		this(context,null);
@@ -63,33 +62,33 @@ public class SlidingMenu extends HorizontalScrollView {
 
 	
 	/*
-	 * Î´¶¨ÒåÊôĞÔÊ±µ÷ÓÃ
+	 * æœªå®šä¹‰å±æ€§æ—¶è°ƒç”¨
 	 */
 	public SlidingMenu(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 	
 	/*
-	 * ×Ô¶¨ÒåÊôĞÔÊ±µ÷ÓÃ
+	 * è‡ªå®šä¹‰å±æ€§æ—¶è°ƒç”¨
 	 */
 	public SlidingMenu(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		
 		/*
-		 * »ñÈ¡×Ô¶¨ÒåÊôĞÔ
+		 * è·å–è‡ªå®šä¹‰å±æ€§
 		 */
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, 
 				R.styleable.SliderMenu, 
 				defStyle, 
 				0);
 		
-		int n = a.getIndexCount();//»ñÈ¡×Ô¶¨ÒåÊıÁ¿
+		int n = a.getIndexCount();//è·å–è‡ªå®šä¹‰æ•°é‡
 		for (int i = 0; i < n; i++)
 		{
 			int attr = a.getIndex(i);
 			switch (attr) {
 			case R.styleable.SliderMenu_rightPadding:
-				//°Ñdp×ª³Épx
+				//æŠŠdpè½¬æˆpx
 				mMenuRightPadding = a.getDimensionPixelOffset(attr,
 						(int) TypedValue.applyDimension(
 								TypedValue.COMPLEX_UNIT_DIP, 50, context
@@ -100,13 +99,13 @@ public class SlidingMenu extends HorizontalScrollView {
 		
 		a.recycle();
 		
-		//»ñÈ¡ÆÁÄ»¿í¶È
+		//è·å–å±å¹•å®½åº¦
 		WindowManager wm =(WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
 		DisplayMetrics metrics = new DisplayMetrics();
 		wm.getDefaultDisplay().getMetrics(metrics);
 		mScreenWidth = metrics.widthPixels;
 		
-//		//°Ñdp×ª³Épx
+//		//æŠŠdpè½¬æˆpx
 //		mMenuRightPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, 
 //				context.getResources().getDisplayMetrics());
 	}
@@ -122,7 +121,7 @@ public class SlidingMenu extends HorizontalScrollView {
 			mMenu = (ViewGroup) mWapper.getChildAt(0);
 			mContent = (ViewGroup) mWapper.getChildAt(1);
 			
-			//²Ëµ¥¿í¶È
+			//èœå•å®½åº¦
 			mMenu.getLayoutParams().width = mScreenWidth - mMenuRightPadding;	
 			mMenuWidth = mScreenWidth - mMenuRightPadding;
 			mContent.getLayoutParams().width = mScreenWidth;
@@ -173,7 +172,7 @@ public class SlidingMenu extends HorizontalScrollView {
 	}
 	
 	/*
-	 * l£ºScrollX
+	 * lï¼šScrollX
 	 * 
 	 * @see android.view.View#onScrollChanged(int, int, int, int)
 	 */
@@ -181,14 +180,14 @@ public class SlidingMenu extends HorizontalScrollView {
 	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
 
 		super.onScrollChanged(l, t, oldl, oldt);
-		//µ÷ÓÃÊôĞÔ¶¯»­£¬ÉèÖÃtranslationX
+		//è°ƒç”¨å±æ€§åŠ¨ç”»ï¼Œè®¾ç½®translationX
 		float scale = l*1.0f/mMenuWidth;	//1~0
 		
-		/* a¡¢ÓÒ²àÄÚÈİÆ«ÒÆÁ¿£º1.0~0.7
+		/* aã€å³ä¾§å†…å®¹åç§»é‡ï¼š1.0~0.7
 		 * scale:1.0~0.0
-		 * Öµ: 0.7+£¨scale*0.3£©
-		 * b¡¢²Ëµ¥ÏÔÊ¾Ê±ÓĞËõ·Å¡¢Í¸Ã÷¶È±ä»¯0.7~1.0  0.6~1.0
-		 * Öµ£º1-0.3*scale		1.0 - 0.4*scale
+		 * å€¼: 0.7+ï¼ˆscale*0.3ï¼‰
+		 * bã€èœå•æ˜¾ç¤ºæ—¶æœ‰ç¼©æ”¾ã€é€æ˜åº¦å˜åŒ–0.7~1.0  0.6~1.0
+		 * å€¼ï¼š1-0.3*scale		1.0 - 0.4*scale
 		 */
 		float rightScale = 0.7f + (0.3f*scale);
 		float leftScale = 1.0f - (0.3f*scale);
@@ -196,12 +195,12 @@ public class SlidingMenu extends HorizontalScrollView {
 		
 		
 //		ViewHelper.setTranslationX(mMenu, mMenuWidth*scale);
-		//setTranslationXµÄÆ«ÒÆÁ¿Ô­±¾ÊÇmMenuWidth~0
-		//µ«Ğ§¹û²»ºÃ¿É£¬¼Ó¸öÆ«ÒÆÁ¿
+		//setTranslationXçš„åç§»é‡åŸæœ¬æ˜¯mMenuWidth~0
+		//ä½†æ•ˆæœä¸å¥½å¯ï¼ŒåŠ ä¸ªåç§»é‡
 		ViewHelper.setTranslationX(mMenu, mMenuWidth*scale*0.8f);
 		
 		ViewHelper.setPivotX(mContent, 0);
-		ViewHelper.setPivotY(mContent, mContent.getHeight()/2);//ÉèÖÃËõ·ÅµãÎª×ó²àµÄÖĞĞÄµã
+		ViewHelper.setPivotY(mContent, mContent.getHeight()/2);//è®¾ç½®ç¼©æ”¾ç‚¹ä¸ºå·¦ä¾§çš„ä¸­å¿ƒç‚¹
 		
 		ViewHelper.setScaleX(mContent, rightScale);
 		ViewHelper.setScaleY(mContent, rightScale);
@@ -227,7 +226,7 @@ public class SlidingMenu extends HorizontalScrollView {
 	}
 	
 	/*
-	 * °´¼üÇĞ»»
+	 * æŒ‰é”®åˆ‡æ¢
 	 */
 	public void toggleMenu()
 	{

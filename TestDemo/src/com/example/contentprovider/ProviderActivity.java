@@ -22,13 +22,12 @@ public class ProviderActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
 	
 	/*
-	 * »ñÈ¡ÏµÍ³×Ô´øµÄÍ¨Ñ¶Â¼
-	 * ĞèÒªÌí¼Ó¶Áµç»°±¾ºÍĞ´µç»°±¾È¨ÏŞ
+	 * è·å–ç³»ç»Ÿè‡ªå¸¦çš„é€šè®¯å½•
+	 * éœ€è¦æ·»åŠ è¯»ç”µè¯æœ¬å’Œå†™ç”µè¯æœ¬æƒé™
 	 */
 	private void getSystemContracts()
 	{
@@ -44,33 +43,33 @@ public class ProviderActivity extends Activity {
 				String name = cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME));
 				LOG("id=" + id +" name=" + name);
 				/*
-				 * ²éÑ¯ÁªÏµÈËµç»°ºÅÂë
+				 * æŸ¥è¯¢è”ç³»äººç”µè¯å·ç 
 				 */
 				Cursor cursor2 = resolver.query(Phone.CONTENT_URI, 
-						new String[]{Phone.NUMBER, Phone.TYPE}, //²éºÅÂë
-						Phone.CONTACT_ID + "=" + id, //Ìõ¼şÊÇ²éµ½µÄid
+						new String[]{Phone.NUMBER, Phone.TYPE}, //æŸ¥å·ç 
+						Phone.CONTACT_ID + "=" + id, //æ¡ä»¶æ˜¯æŸ¥åˆ°çš„id
 						null, null);
 				if (null != cursor2)
 				{
 					while(cursor2.moveToNext())
 					{
 						int type = cursor2.getInt(cursor2.getColumnIndex(Phone.TYPE));
-						if (type == Phone.TYPE_HOME)//¼ÒÍ¥ºÅÂë
+						if (type == Phone.TYPE_HOME)//å®¶åº­å·ç 
 						{
 							int number = cursor2.getInt(cursor2.getColumnIndex(Phone.NUMBER));
-							LOG("¼ÒÍ¥ºÅÂë£º" + number);
+							LOG("å®¶åº­å·ç ï¼š" + number);
 						}
-						else if (type == Phone.TYPE_MOBILE)//ÊÖ»úºÅÂë
+						else if (type == Phone.TYPE_MOBILE)//æ‰‹æœºå·ç 
 						{
 							int number = cursor2.getInt(cursor2.getColumnIndex(Phone.NUMBER));
-							LOG("ÊÖ»úºÅÂë£º" + number);
+							LOG("æ‰‹æœºå·ç ï¼š" + number);
 						}
 					}
 					cursor2.close();
 				}
 				
 				/*
-				 * ¸ù¾İID²éÑ¯ÓÊÏäµØÖ·
+				 * æ ¹æ®IDæŸ¥è¯¢é‚®ç®±åœ°å€
 				 */
 				Cursor cursor3 = resolver.query(Email.CONTENT_URI,
 						new String[]{Email.DATA, Email.TYPE},
@@ -81,10 +80,10 @@ public class ProviderActivity extends Activity {
 					while(cursor3.moveToNext())
 					{
 						int type = cursor3.getInt(cursor3.getColumnIndex(Email.TYPE));
-						if (type == Email.TYPE_WORK)//¹¤×÷ÓÊÏä
+						if (type == Email.TYPE_WORK)//å·¥ä½œé‚®ç®±
 						{
 							String email = cursor3.getString(cursor3.getColumnIndex(Email.DATA));
-							LOG("ÓÊÏäÊÇ£º" + email);
+							LOG("é‚®ç®±æ˜¯ï¼š" + email);
 						}
 					}
 					cursor3.close();
@@ -100,14 +99,14 @@ public class ProviderActivity extends Activity {
 		ContentValues values = new ContentValues();
 		Uri uri = resolver.insert(RawContacts.CONTENT_URI, values);
 		long id = ContentUris.parseId(uri);
-		//²åÈëÈËÃû
+		//æ’å…¥äººå
 		values.clear();
 		values.put(StructuredName.RAW_CONTACT_ID, id);
-		values.put(StructuredName.DISPLAY_NAME, "ÕÅÈı");
+		values.put(StructuredName.DISPLAY_NAME, "å¼ ä¸‰");
 		values.put(StructuredName.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE);
 		resolver.insert(Data.CONTENT_URI, values);
 		
-		//²åÈëµç»°ĞÅÏ¢
+		//æ’å…¥ç”µè¯ä¿¡æ¯
 		values.clear();
 		values.put(Phone.RAW_CONTACT_ID, id);
 		values.put(Phone.NUMBER, "234567");

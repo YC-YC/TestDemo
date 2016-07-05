@@ -16,10 +16,10 @@ import android.widget.Toast;
 import com.example.testdemo.R;
 
 /*
- * 1¡¢¸øView×¢²áÉÏÏÂÎÄ²Ëµ¥registerForContextMenu
- * 2¡¢Ìí¼ÓÄÚÈİµ½ÉÏÏÂÎÄ²Ëµ¥
- * 	¿ÉÊÖ¶¯¡¢¿ÉxmlÌí¼Ó
- * 3¡¢ÉèÖÃµã»÷ÊÂ¼şonContextItemSelected()
+ * 1ã€ç»™Viewæ³¨å†Œä¸Šä¸‹æ–‡èœå•registerForContextMenu
+ * 2ã€æ·»åŠ å†…å®¹åˆ°ä¸Šä¸‹æ–‡èœå•
+ * 	å¯æ‰‹åŠ¨ã€å¯xmlæ·»åŠ 
+ * 3ã€è®¾ç½®ç‚¹å‡»äº‹ä»¶onContextItemSelected()
  */
 public class ContextMenuActivity extends Activity {
 
@@ -34,18 +34,17 @@ public class ContextMenuActivity extends Activity {
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.setHeaderTitle("ÎÄ¼ş²Ù×÷");
+		menu.setHeaderTitle("æ–‡ä»¶æ“ä½œ");
 		menu.setHeaderIcon(R.drawable.ic_launcher);
 		/*
-		 * ÊÖ¶¯Ìí¼Ó
+		 * æ‰‹åŠ¨æ·»åŠ 
 		 */
-//		menu.add(1, 1, 1, "¸´ÖÆ");
-//		menu.add(1, 2, 1, "Õ³Ìù");
-//		menu.add(1, 3, 1, "¼ôÇĞ");
-//		menu.add(1, 4, 1, "É¾³ı");
-		
+//		menu.add(1, 1, 1, "å¤åˆ¶");
+//		menu.add(1, 2, 1, "ç²˜è´´");
+//		menu.add(1, 3, 1, "å‰ªåˆ‡");
+//		menu.add(1, 4, 1, "åˆ é™¤");
 		/*
-		 * xmlÌí¼Ó
+		 * xmlæ·»åŠ 
 		 */
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.context_menu, menu);
@@ -56,19 +55,19 @@ public class ContextMenuActivity extends Activity {
 		switch (item.getItemId()) {
 		case 1:
 		case R.id.contextmenu1:
-			Toast.makeText(this, "µã»÷ÁË¸´ÖÆ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ç‚¹å‡»äº†å¤åˆ¶", Toast.LENGTH_SHORT).show();
 			break;
 		case 2:
 		case R.id.contextmenu2:
-			Toast.makeText(this, "µã»÷ÁËÕ³Ìù", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ç‚¹å‡»äº†ç²˜è´´", Toast.LENGTH_SHORT).show();
 			break;
 		case 3:
 		case R.id.contextmenu3:
-			Toast.makeText(this, "µã»÷ÁË¼ôÇĞ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ç‚¹å‡»äº†å‰ªåˆ‡", Toast.LENGTH_SHORT).show();
 			break;
 		case 4:
 		case R.id.contextmenu4:
-			Toast.makeText(this, "µã»÷ÁËÉ¾³ı", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ç‚¹å‡»äº†åˆ é™¤", Toast.LENGTH_SHORT).show();
 			break;
 
 		default:
@@ -82,13 +81,13 @@ public class ContextMenuActivity extends Activity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, getData());
 		listView.setAdapter(adapter);
-		this.registerForContextMenu(listView);//¸øviewÌí¼ÓÉÏÏÂÎÄ²Ëµ¥
+		this.registerForContextMenu(listView);//ç»™viewæ·»åŠ ä¸Šä¸‹æ–‡èœå•
 	}
 
 	private ArrayList<String> getData() {
 		ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < 5; i++) {
-			list.add("ÎÄ¼ş" + i);
+			list.add("æ–‡ä»¶" + i);
 		}
 		return list;
 	}

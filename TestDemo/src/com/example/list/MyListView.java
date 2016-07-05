@@ -20,15 +20,15 @@ import android.widget.TextView;
 
 import com.example.testdemo.R;
 /*
- * ÖØĞ´ListView
- * 1¡¢Ìí¼Ó¹¹Ôìº¯Êı
- * 2¡¢Ìí¼Ófooter
- * 3¡¢¼àÌıOnSrollListener
+ * é‡å†™ListView
+ * 1ã€æ·»åŠ æ„é€ å‡½æ•°
+ * 2ã€æ·»åŠ footer
+ * 3ã€ç›‘å¬OnSrollListener
  * 
- * 1¡¢Ìí¼ÓÍ·²¿
- * 2¡¢Í¨¹ıÉèÖÃpaddingÀ´ÏÔÊ¾ÇøÓò£¬Ç°ÌáÊÇÍ¨Öª¸¸²¼¾ÖÆä¿í¸ß
- * 3¡¢ÖØĞ´onTouchEvent»ñÈ¡×´Ì¬ºÍ¼ÆËãÆ«ÒÆ
- * 4¡¢ÊÍ·ÅÊ±´¦Àí
+ * 1ã€æ·»åŠ å¤´éƒ¨
+ * 2ã€é€šè¿‡è®¾ç½®paddingæ¥æ˜¾ç¤ºåŒºåŸŸï¼Œå‰ææ˜¯é€šçŸ¥çˆ¶å¸ƒå±€å…¶å®½é«˜
+ * 3ã€é‡å†™onTouchEventè·å–çŠ¶æ€å’Œè®¡ç®—åç§»
+ * 4ã€é‡Šæ”¾æ—¶å¤„ç†
  */
 public class MyListView extends ListView implements OnScrollListener{
 
@@ -37,26 +37,25 @@ public class MyListView extends ListView implements OnScrollListener{
 	private View footer;
 	private View header;
 	
-	private int mLastVisibleItem;	//×îºóÒ»Ïî
-	private int mTotalListItem;		//×ÜÏî
-	private int mFirstVisibleItem;	//µÚÒ»¸ö¿É¼ûÏî
-	private int mScrollState;		//¹ö¶¯×´Ì¬
+	private int mLastVisibleItem;	//æœ€åä¸€é¡¹
+	private int mTotalListItem;		//æ€»é¡¹
+	private int mFirstVisibleItem;	//ç¬¬ä¸€ä¸ªå¯è§é¡¹
+	private int mScrollState;		//æ»šåŠ¨çŠ¶æ€
 	
-	private boolean mbLoading;		//¼ÓÔØÖĞ
-	private boolean mIsRemark;		//×î¶¥¶Ë°´ÏÂ
+	private boolean mbLoading;		//åŠ è½½ä¸­
+	private boolean mIsRemark;		//æœ€é¡¶ç«¯æŒ‰ä¸‹
 	
-	private int startY;	//ÆğÊ¼YÖµ
+	private int startY;	//èµ·å§‹Yå€¼
 	
-	private final int NONE = 0;	//Õı³£×´Ì¬
-	private final int PULL = 1;	//ÌáÊ¾ÏÂÀ­×´Ì¬
-	private final int RELEASE = 2;	//ÌáÊ¾ËÉ¿ª×´Ì¬
-	private final int REFLASHING = 3;	//ÕıÔÚË¢ĞÂ
+	private final int NONE = 0;	//æ­£å¸¸çŠ¶æ€
+	private final int PULL = 1;	//æç¤ºä¸‹æ‹‰çŠ¶æ€
+	private final int RELEASE = 2;	//æç¤ºæ¾å¼€çŠ¶æ€
+	private final int REFLASHING = 3;	//æ­£åœ¨åˆ·æ–°
 	
-	private int state;	//µ±Ç°×´Ì¬Öµ
+	private int state;	//å½“å‰çŠ¶æ€å€¼
 	
 	
-	
-	private int mHeaderHeight;	//ÉÏ±ß¾à
+	private int mHeaderHeight;	//ä¸Šè¾¹è·
 	
 	private ILoadListener mListener;
 	
@@ -79,14 +78,14 @@ public class MyListView extends ListView implements OnScrollListener{
 		LayoutInflater inflater = LayoutInflater.from(context);
 		footer = inflater.inflate(R.layout.listview2_footer, null);
 		footer.findViewById(R.id.list_footer).setVisibility(GONE);
-		this.addFooterView(footer);//Ìí¼Óµ×²¿¼ÓÔØ
+		this.addFooterView(footer);//æ·»åŠ åº•éƒ¨åŠ è½½
 		
 		header = inflater.inflate(R.layout.listview2_header, null);
 		measureView(header);
 		mHeaderHeight = header.getMeasuredHeight();
 		LOG("mHeaderHeight = " + mHeaderHeight);
-		topPadding(-mHeaderHeight);//ÊµÏÖÒş²Ø
-		this.addHeaderView(header);//Ìí¼ÓÍ·²¿
+		topPadding(-mHeaderHeight);//å®ç°éšè—
+		this.addHeaderView(header);//æ·»åŠ å¤´éƒ¨
 		
 		
 		setOnScrollListener(this);
@@ -96,7 +95,7 @@ public class MyListView extends ListView implements OnScrollListener{
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
 		mScrollState = scrollState;
-		if (mLastVisibleItem == mTotalListItem &&	//×îºóÏîÇÒÍ£Ö¹ÁË»¬¶¯
+		if (mLastVisibleItem == mTotalListItem &&	//æœ€åé¡¹ä¸”åœæ­¢äº†æ»‘åŠ¨
 				scrollState == SCROLL_STATE_IDLE){
 			if (!mbLoading){
 				mbLoading = true;
@@ -121,7 +120,7 @@ public class MyListView extends ListView implements OnScrollListener{
 
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			if (mFirstVisibleItem == 0){//×î¶¥¶Ë°´ÏÂ
+			if (mFirstVisibleItem == 0){//æœ€é¡¶ç«¯æŒ‰ä¸‹
 				mIsRemark = true;
 				startY = (int) ev.getY();
 			}
@@ -130,7 +129,7 @@ public class MyListView extends ListView implements OnScrollListener{
 			onMove(ev);
 			break;
 		case MotionEvent.ACTION_UP:
-			if (state == RELEASE){	//ÌáÊ¾ËÉ¿ª×´Ì¬ËÉ¿ª½øÈëË¢ĞÂ×´Ì¬
+			if (state == RELEASE){	//æç¤ºæ¾å¼€çŠ¶æ€æ¾å¼€è¿›å…¥åˆ·æ–°çŠ¶æ€
 				state = REFLASHING;
 				reflashViewByState();
 				mListener.onRefresh();
@@ -146,7 +145,7 @@ public class MyListView extends ListView implements OnScrollListener{
 	
 	
 	private void onMove(MotionEvent ev) {
-		if (!mIsRemark){	//²»ÊÇµÚÒ»Ïî°´ÏÂ
+		if (!mIsRemark){	//ä¸æ˜¯ç¬¬ä¸€é¡¹æŒ‰ä¸‹
 			return;
 		}
 		int space = (int) (ev.getY() - startY);
@@ -154,7 +153,7 @@ public class MyListView extends ListView implements OnScrollListener{
 //		LOG("space = " + space + ",padding=" + topPadding);
 		switch (state) {
 		case NONE:
-			if (space > 0){//½øÈëÏÂÀ­×´Ì¬
+			if (space > 0){//è¿›å…¥ä¸‹æ‹‰çŠ¶æ€
 				state = PULL;
 				reflashViewByState();
 			}
@@ -182,19 +181,19 @@ public class MyListView extends ListView implements OnScrollListener{
 	}
 	
 	/*
-	 * ¸ù¾İ×´Ì¬Ë¢ĞÂÍ¼±ê
+	 * æ ¹æ®çŠ¶æ€åˆ·æ–°å›¾æ ‡
 	 */
 	private void reflashViewByState() {
 		TextView tip = (TextView) header.findViewById(R.id.tip);
 		ImageView arrow = (ImageView) header.findViewById(R.id.arrow);
 		ProgressBar progressBar = (ProgressBar) header.findViewById(R.id.fresh_progress);
-		//¼ıÍ·Ìí¼Ó¶¯»­
-		RotateAnimation anim1 = new RotateAnimation(0, 180,//0µ½180
+		//ç®­å¤´æ·»åŠ åŠ¨ç”»
+		RotateAnimation anim1 = new RotateAnimation(0, 180,//0åˆ°180
 				RotateAnimation.RELATIVE_TO_SELF, 0.5f,
 				RotateAnimation.RELATIVE_TO_SELF, 0.5f);
 		anim1.setDuration(500);
 		anim1.setFillAfter(true);
-		RotateAnimation anim2 = new RotateAnimation(180, 0,//180µ½0
+		RotateAnimation anim2 = new RotateAnimation(180, 0,//180åˆ°0
 				RotateAnimation.RELATIVE_TO_SELF, 0.5f,
 				RotateAnimation.RELATIVE_TO_SELF, 0.5f);
 		anim2.setDuration(500);
@@ -208,7 +207,7 @@ public class MyListView extends ListView implements OnScrollListener{
 		case PULL:
 			arrow.setVisibility(View.VISIBLE);
 			progressBar.setVisibility(View.GONE);
-			tip.setText("ÏÂÀ­¿ÉÒÔË¢ĞÂ");
+			tip.setText("ä¸‹æ‹‰å¯ä»¥åˆ·æ–°");
 			arrow.clearAnimation();
 			arrow.setAnimation(anim2);
 //			LOG("reflashViewByState PULL");
@@ -216,7 +215,7 @@ public class MyListView extends ListView implements OnScrollListener{
 		case RELEASE:
 			arrow.setVisibility(View.VISIBLE);
 			progressBar.setVisibility(View.GONE);
-			tip.setText("ËÉ¿ª¿ÉÒÔË¢ĞÂ");
+			tip.setText("æ¾å¼€å¯ä»¥åˆ·æ–°");
 			arrow.clearAnimation();
 			arrow.setAnimation(anim1);
 			break;
@@ -226,13 +225,13 @@ public class MyListView extends ListView implements OnScrollListener{
 			topPadding(mHeaderHeight);
 			arrow.setVisibility(View.GONE);
 			progressBar.setVisibility(View.VISIBLE);
-			tip.setText("ÕıÔÚË¢ĞÂ");
+			tip.setText("æ­£åœ¨åˆ·æ–°");
 			break;
 		}
 	}
 
 	/*
-	 * Í¨Öª¸¸²¼¾ÖÕ¼ÓÃ¸ß¿í
+	 * é€šçŸ¥çˆ¶å¸ƒå±€å ç”¨é«˜å®½
 	 */
 	private void measureView(View view){
 		ViewGroup.LayoutParams p = view.getLayoutParams();
@@ -252,7 +251,7 @@ public class MyListView extends ListView implements OnScrollListener{
 	}
 
 	/*
-	 * Í·²¿Í¨¹ıÉèÖÃÉÏ±ß¾àÀ´ÊµÏÖÍÏ¶¯Ğ§¹û
+	 * å¤´éƒ¨é€šè¿‡è®¾ç½®ä¸Šè¾¹è·æ¥å®ç°æ‹–åŠ¨æ•ˆæœ
 	 */
 	private void topPadding(int topPadding){
 		LOG("topPadding = "+ topPadding);
@@ -261,7 +260,7 @@ public class MyListView extends ListView implements OnScrollListener{
 	}
 	
 	/*
-	 * ¼ÓÔØÍê³É
+	 * åŠ è½½å®Œæˆ
 	 */
 	public void loadComplete(){
 		mbLoading = false;
@@ -269,14 +268,14 @@ public class MyListView extends ListView implements OnScrollListener{
 	}
 	
 	/*
-	 * ÏÂÀ­Ë¢ĞÂÍê³É
+	 * ä¸‹æ‹‰åˆ·æ–°å®Œæˆ
 	 */
 	public void refreshComplete(){
 		state = NONE;
 		reflashViewByState();
 		mIsRemark = false;
 		TextView tv = (TextView) header.findViewById(R.id.lastupdate_time);
-		SimpleDateFormat format = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ hh:mm:ss");
+		SimpleDateFormat format = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ hh:mm:ss");
 		Date date = new Date(System.currentTimeMillis());
 		String time = format.format(date);
 		tv.setText(time);
@@ -286,7 +285,7 @@ public class MyListView extends ListView implements OnScrollListener{
 		mListener = listener;
 	}
 	/*
-	 * Ìá¹©¸øÆäËüÀàµ÷ÓÃµÄ½Ó¿Ú
+	 * æä¾›ç»™å…¶å®ƒç±»è°ƒç”¨çš„æ¥å£
 	 */
 	public interface ILoadListener{
 		public void onLoadMore();

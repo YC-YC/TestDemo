@@ -35,7 +35,6 @@ public class SecondFragment extends Fragment implements OnClickListener{
 	private Button button9;
 	private Button button10;
 	
-	
 	private Context mContext;
 	
 	@Override

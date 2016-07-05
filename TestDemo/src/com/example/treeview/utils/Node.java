@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Node {
 	private int id;
-	// ¸ù½Úµã
+	// æ ¹èŠ‚ç‚¹
 	private int pid = 0;
 	private String name;
-	// ¼¶Êı
+	// çº§æ•°
 	private int level;
-	//ÊÇ·ñÕ¹¿ª
+	//æ˜¯å¦å±•å¼€
 	private boolean isExpand;
 	private int icon;
 	
@@ -23,9 +23,8 @@ public class Node {
 		this.pid = pid;
 		this.name = label;
 	}
-	
 	/*
-	 * ÊÇ·ñÊÇ¸ù½Úµã
+	 * æ˜¯å¦æ˜¯æ ¹èŠ‚ç‚¹
 	 */
 	public boolean isRoot()
 	{
@@ -33,7 +32,7 @@ public class Node {
 	}
 	
 	/*
-	 * ¸¸½ÚµãÊÇ·ñÕ¹¿ª
+	 * çˆ¶èŠ‚ç‚¹æ˜¯å¦å±•å¼€
 	 */
 	public boolean isParentExpand()
 	{
@@ -43,7 +42,7 @@ public class Node {
 	}
 	
 	/*
-	 * ÊÇ·ñÊÇÒ¶½Úµã
+	 * æ˜¯å¦æ˜¯å¶èŠ‚ç‚¹
 	 */
 	public boolean isLeaf()
 	{
@@ -51,7 +50,7 @@ public class Node {
 	}
 	
 	/*
-	 * µÃµ½µ±Ç°½ÚµãµÄ²ã¼¶
+	 * å¾—åˆ°å½“å‰èŠ‚ç‚¹çš„å±‚çº§
 	 */
 	public int getLevel() {
 		return parent == null?0:parent.getLevel() + 1;
@@ -64,7 +63,7 @@ public class Node {
 		this.isExpand = isExpand;
 		if (!this.isExpand)
 		{
-			//µİ¹é×Ó½Úµã
+			//é€’å½’å­èŠ‚ç‚¹
 			for (Node node : child) {
 				node.setExpand(false);
 			}
